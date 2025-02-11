@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>calxu</title>
+    <title>Jiazhen Zhao | 赵家振</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on calxu</description>
+    <description>Recent content on Jiazhen Zhao | 赵家振</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2025 00:48:53 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2025 01:37:51 -0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/links/</link>
+      <pubDate>Tue, 11 Feb 2025 01:37:51 -0800</pubDate>
+      <guid>http://localhost:1313/links/</guid>
+      <description>&lt;p&gt;Here is some links.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Tue, 11 Feb 2025 01:25:50 -0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;个人介绍&#34;&gt;个人介绍&lt;/h2&gt;&#xA;&lt;p&gt;My name is &lt;strong&gt;Jiazhen Zhao&lt;/strong&gt;. I am a male born in 2002 and currently studying at the School of Computer Science and Software Engineering at Nanyang Institute of Technology. My email addresses are &lt;code&gt;873694994@qq.com&lt;/code&gt; and &lt;code&gt;zhaojiazhen12318@gmail.com&lt;/code&gt;. My GitHub profile can be found at &lt;code&gt;https://github.com/JiazhenZhao02091&lt;/code&gt;. Nice to meet you!&lt;/p&gt;&#xA;&lt;p&gt;我叫&lt;strong&gt;赵家振&lt;/strong&gt;，性别男，02年出生，目前就读于南阳理工学院计算机与软件学院，我的邮箱：&lt;code&gt;873694994@qq.com&lt;/code&gt; &amp;amp;&amp;amp; &lt;code&gt;zhaojiazhen12318@gmail.com&lt;/code&gt;，GitHub主页：&lt;code&gt;https://github.com/JiazhenZhao02091&lt;/code&gt;,很高兴认识你！&lt;/p&gt;&#xA;&lt;h2 id=&#34;教育背景&#34;&gt;教育背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;2021-至今：就读于南阳理工学院&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;爱好&#34;&gt;爱好&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;打游戏（FPS，MOBA等）&lt;/li&gt;&#xA;&lt;li&gt;跑步&lt;/li&gt;&#xA;&lt;li&gt;乒乓球、吉他&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Test_note2</title>
       <link>http://localhost:1313/note/test_note2/</link>
       <pubDate>Tue, 11 Feb 2025 00:48:53 -0800</pubDate>
       <guid>http://localhost:1313/note/test_note2/</guid>
       <description>&lt;p&gt;Here is summary.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Test_note</title>
-      <link>http://localhost:1313/note/test_note/</link>
-      <pubDate>Tue, 11 Feb 2025 00:47:29 -0800</pubDate>
-      <guid>http://localhost:1313/note/test_note/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>
