@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Algorithm_graph | Jiazhen Zhao | 赵家振</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/about/">About me</a></li>
+      
+      <li><a href="/links/">Links</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Algorithm_graph</span></h1>
+
+<h2 class="date">2025/03/01</h2>
+</div>
+
+<main>
+<h2 id="最短路">最短路</h2>
+<p><strong>能用dijkstra的就别用spfa</strong></p>
+<h3 id="dijkstra-算法"><strong>Dijkstra 算法</strong></h3>
+<p><a href="https://www.acwing.com/solution/content/6320/">题解</a></p>
+<p>朴素用邻接矩阵存储 			// 稠密图 点少线多</p>
+<p>1.循环 n 次</p>
+<p>2.找到一个 t 用来代表当前所有点到目前点的最短距离</p>
+<p>3.用 t 来更新到这个点的最短距离</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">550</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> g[N][N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dist[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> st[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dijkstra</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(dist,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>    dist[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; i <span style="color:#f92672">&lt;</span>  n; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n ; j <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>st[j] <span style="color:#f92672">&amp;&amp;</span> (t <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> dist[t] <span style="color:#f92672">&gt;</span> dist[j]))
+</span></span><span style="display:flex;"><span>                t <span style="color:#f92672">=</span> j ;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;j <span style="color:#f92672">&lt;=</span> n ; j <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            dist[j] <span style="color:#f92672">=</span> min(dist[j],dist[t] <span style="color:#f92672">+</span> g[t][j]);
+</span></span><span style="display:flex;"><span>        st[t] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(g,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> g);
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m <span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>        g[a][b] <span style="color:#f92672">=</span> min(g[a][b],c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    dijkstra();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dist[n] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x3f3f3f3f</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> dist[n] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="优化版的dijkstr-算法"><strong>优化版的dijkstr 算法</strong></h3>
+<p>稀疏图 用邻接矩阵来存储</p>
+<p>用堆进行优化 每次取最短值的时候 取堆顶元素</p>
+<p><strong>相当于是省略了朴素版dijkstra 的找到距离当前点最短距离这一步；；</strong></p>
+<p>代替上边的第一二步</p>
+<p>然后更新所有堆的距离</p>
+<p>用一个 pair &lt;int,int&gt;  数组来存储到起点的距离和当前点的编号</p>
+<p>用邻接表遍历所有到达的点 并对其进行判断 如果小于 并且该值并未被使用过  即 st 为 false  可以进行更新</p>
+<p>就把该值和距离推进 heap 数组中</p>
+<p>这里 与 spfa 算法进行个区分</p>
+<ul>
+<li>
+<p>dijsktra 算法一般在取得编号后就进行判断 是否进行 continue 环节</p>
+</li>
+<li>
+<p>spfa 算法 则在 for 循环和 if 循环 之后判断该值是否使用过</p>
+</li>
+<li>
+<p>dijkstra保证了每个点只会被使用一次，而spfa则一个点可能被多次使用</p>
+</li>
+</ul>
+<blockquote>
+<p>​	SPFA可以处理负权边，但是不能处理有负权回路的图；而Dijkstra不能处理带有负权边和负权回路的图，因为Dijkstra算法在计算最短路径时，不会因为负边的出现而更新已经计算过(收录过)的顶点的路径长度；
+​	总结一下：Bellman-ford可以处理任意带负权边和负权环的图，SPFA可以处理带负权边的图，Dijkstra只能处理带正权边的图；当然，从时间复杂度的效率来讲，是反过来的，hh</p></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> PII;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N],e[N],ne[N],w[N],idx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dist[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> st[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b,<span style="color:#66d9ef">int</span> c)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    e[idx] <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>    w[idx] <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    ne[idx] <span style="color:#f92672">=</span> h[a];
+</span></span><span style="display:flex;"><span>    h[a] <span style="color:#f92672">=</span> idx <span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dijkstra</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(dist,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>    priority_queue <span style="color:#f92672">&lt;</span>PII,vector<span style="color:#f92672">&lt;</span>PII<span style="color:#f92672">&gt;</span>,greater<span style="color:#f92672">&lt;</span>PII<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&gt;</span>heap;
+</span></span><span style="display:flex;"><span>    dist[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    heap.push({<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(heap.size())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> t <span style="color:#f92672">=</span> heap.top();
+</span></span><span style="display:flex;"><span>        heap.pop();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ver <span style="color:#f92672">=</span> t.second;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> t.first;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(st[ver]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        st[ver] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> h[ver]; i <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i <span style="color:#f92672">=</span> ne[i])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> e[i];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(dist[j] <span style="color:#f92672">&gt;</span> dist[ver] <span style="color:#f92672">+</span> w[i])
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                dist[j] <span style="color:#f92672">=</span> dist[ver] <span style="color:#f92672">+</span> w[i];
+</span></span><span style="display:flex;"><span>                heap.push({dist[j],j});
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m ;
+</span></span><span style="display:flex;"><span>    memset(h,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">sizeof</span> h);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c ;
+</span></span><span style="display:flex;"><span>        add(a,b,c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    dijkstra();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dist[n] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x3f3f3f3f</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> dist[n] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bellman_ford-算法"><strong>Bellman_ford</strong> 算法</h3>
+<p>用于处理存在负权边的环节  并且存在 判断至少在几条边实现</p>
+<p><strong>利用结构体来存储</strong></p>
+<p>第一层 for 循环代表最短几条边</p>
+<p>接下来对所有的边进行遍历，用 struct 来对每条边取最短的路径</p>
+<p>为了避免出	行比对</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">550</span>,M <span style="color:#f92672">=</span> <span style="color:#ae81ff">10010</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Edge</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>}edges[M];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m,k;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dist[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> last[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bellman_ford</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(dist,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>    dist[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; i <span style="color:#f92672">&lt;</span> k ;i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        memcpy(last,dist,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; j<span style="color:#f92672">&lt;</span> m ; j <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> e <span style="color:#f92672">=</span> edges[j];
+</span></span><span style="display:flex;"><span>            dist[e.b] <span style="color:#f92672">=</span> min(dist[e.b], last[e.a] <span style="color:#f92672">+</span> e.c);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> k;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>m;i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> x,y,z;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y <span style="color:#f92672">&gt;&gt;</span> z;
+</span></span><span style="display:flex;"><span>        edges[i] <span style="color:#f92672">=</span> {x,y,z};
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    bellman_ford();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (dist[n] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0x3f3f3f3f</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) puts(<span style="color:#e6db74">&#34;impossible&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, dist[n]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="spfa-算法"><strong>Spfa 算法</strong></h3>
+<p><a href="https://www.acwing.com/solution/content/9306/">题解</a></p>
+<p>是基于bellman_ford 算法的一种优化</p>
+<p>因为bellman 算法是对所有的边都进行了取最短距离</p>
+<p>而	Spfa  算法则是利用 队列 来存储每次取得到的 最短距离</p>
+<p>并用这个 距离 来更新别的距离</p>
+<p>bellman 算法 保留了所有到这个点的前一个点的最短距离，但这样的话 无疑会有一些边是未曾用过的</p>
+<p>而 spfa 算法就是只记录了会被更新的节点 并 用这个点来更新别的点</p>
+<p>用 for 循环 来遍历所有与当前点有接触的所有点</p>
+<p>然后用队列将该点存下来 在每次遍历队列中的点 以此为延续不断连接所有可能会遇到的点</p>
+<p>即该点用到了 就会 继续更新它后面的点</p>
+<p>Bellman_ford算法会遍历所有的边，但是有很多的边遍历了其实没有什么意义，我们只用遍历那些到源点距离变小的点所连接的边即可，只有当一个点的前驱结点更新了，该节点才会得到更新；因此考虑到这一点，我们将创建一个队列每一次加入距离被更新的结点。</p>
+<blockquote>
+<p>关于为什么</p>
+<p>每次只会讲修改过的边加入进去</p></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N],w[N],e[N],ne[N],idx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dist[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> st[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b,<span style="color:#66d9ef">int</span> c)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    e[idx] <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>    w[idx] <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    ne[idx] <span style="color:#f92672">=</span> h[a];
+</span></span><span style="display:flex;"><span>    h[a] <span style="color:#f92672">=</span> idx<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">spfa</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(dist,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>    dist[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>q;
+</span></span><span style="display:flex;"><span>    q.push(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    st[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(q.size())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> q.front();
+</span></span><span style="display:flex;"><span>        q.pop();
+</span></span><span style="display:flex;"><span>        st[t] <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> h[t] ; i <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i <span style="color:#f92672">=</span> ne[i])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> e[i];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(dist[j] <span style="color:#f92672">&gt;</span> dist[t] <span style="color:#f92672">+</span> w[i])
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                dist[j] <span style="color:#f92672">=</span> dist[t] <span style="color:#f92672">+</span> w[i];
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>st[j]) <span style="color:#75715e">// 这里只会存放已经被更新过的边 ，， 如果被更新了 且不再队列中才会被继续添加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                {
+</span></span><span style="display:flex;"><span>                    q.push(j);
+</span></span><span style="display:flex;"><span>                    st[j] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    memset(h,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">sizeof</span> h);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m <span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a<span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>        add(a,b,c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    spfa();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dist[n] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x3f3f3f3f</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;impossible&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> dist[n] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="foyld-算法"><strong>Foyld 算法</strong></h3>
+<p>用 邻接表来存储   但是 为什么这样 初始化</p>
+<p>因为 g 数组中存储的就是点到点的距离，所以当 i == j 的时候 距离为 0 ，所以初始化为 0；</p>
+<p>k i j</p>
+<p>g[i][j] = min(g[i][j] , g[i][k] + g[k][j]);</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">210</span>,INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e9</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> g[N][N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m,q;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Floyd</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;k <span style="color:#f92672">&lt;=</span> n ;k <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;i <span style="color:#f92672">&lt;=</span> n ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n ;j <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            g[i][j] <span style="color:#f92672">=</span> min(g[i][j] , g[i][k] <span style="color:#f92672">+</span> g[k][j]);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> q;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n ; j <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">==</span> j) g[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> g[i][j] <span style="color:#f92672">=</span> INF;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m <span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>        g[a][b] <span style="color:#f92672">=</span> min(g[a][b] , c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Floyd();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(q <span style="color:#f92672">--</span> )
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> x,y;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(g[x][y] <span style="color:#f92672">&gt;</span> INF <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) cout <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;impossible&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> g[x][y] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="最小生成树">最小生成树</h2>
+<h3 id="prim-算法"><strong>Prim 算法</strong></h3>
+<p><strong>处理稠密图</strong></p>
+<p>主要是利用<strong>扩大集合</strong>的思想来做的 ，不断找到距离当前集合最近的点，并把他加入</p>
+<p>与 dijkstra 算法类似</p>
+<p>枚举 n 次</p>
+<p>找到距离集合最近的点 t</p>
+<p>用 t 来更新其他点到集合的距离</p>
+<p>利用 res 记录所有不是第一条边的时候的权重和</p>
+<p>当出现不是第一条边并且最近距离也是趋近于正无穷时，直接结束</p>
+<p>返回 false</p>
+<p>最后使用 g[t] [j]  时，关于为什么使用它的原因是，需要找到当前点距离集合最近的点，又因为 dist 本身保存的就是当前点到第一个点即集合的距离，再加上前面每次循环找到的都是距离上一个点的最近距离，所以说<strong>当 dist 不是最近的距离时 最近的距离就是 g</strong>   ，，因为上面每次的都是取到了距离的最小值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">550</span>,INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3f3f3f3f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> M <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> g[N][N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> st[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dist[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> res;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Prim</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   memset(dist,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> dist);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; i <span style="color:#f92672">&lt;</span> n ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n ; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>st[j] <span style="color:#f92672">&amp;&amp;</span> (t <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> dist[t] <span style="color:#f92672">&gt;</span> dist[j]))
+</span></span><span style="display:flex;"><span>                t <span style="color:#f92672">=</span> j;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">&amp;&amp;</span> dist[t] <span style="color:#f92672">==</span> INF) <span style="color:#66d9ef">return</span> INF;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(i) res <span style="color:#f92672">+=</span> dist[t];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j <span style="color:#f92672">++</span> ) dist[j] <span style="color:#f92672">=</span> min(dist[j], g[t][j]); <span style="color:#75715e">// 记录到集合的距离，而不是跟最短路一样到起点的距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        st[t] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    memset(g,<span style="color:#ae81ff">0x3f</span>,<span style="color:#66d9ef">sizeof</span> g);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a<span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>        g[a][b] <span style="color:#f92672">=</span> g[b][a] <span style="color:#f92672">=</span> min(g[a][b],c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> Prim();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(res <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x3f3f3f3f</span>) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;impossible&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> res <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="kruskal-算法"><strong>Kruskal 算法</strong></h3>
+<p>处理稀疏图</p>
+<p>通过结构体**按照权重来进行排序 ** 排序保证是最小生成树</p>
+<p>利用并查集和结构体来存储边和权重</p>
+<p>每次如果两点之间没有联系则利用并查集 进行  两两  相加 记录权重和 count</p>
+<p>如果 cnt &lt; n-1 则不存在最小生成树，否则输出权值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt; iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">10</span> , M <span style="color:#f92672">=</span> <span style="color:#ae81ff">200010</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> INF <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3f3f3f3f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> p[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Edges</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a,b,w;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">const</span> Edges <span style="color:#f92672">&amp;</span> W)<span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> w <span style="color:#f92672">&lt;</span> W.w;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}edges[M];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find</span>(<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(x <span style="color:#f92672">!=</span> p[x]) p[x] <span style="color:#f92672">=</span>  find(p[x]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> p[x];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">kruskal</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> , res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    sort(edges,edges <span style="color:#f92672">+</span> m);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n ; i <span style="color:#f92672">++</span>) p[i] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; i <span style="color:#f92672">&lt;</span> m ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> edges[i].a , b <span style="color:#f92672">=</span> edges[i].b , w <span style="color:#f92672">=</span> edges[i].w;
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">=</span> find(a),b <span style="color:#f92672">=</span> find(b);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">!=</span> b)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            p[a] <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">+=</span> w;
+</span></span><span style="display:flex;"><span>            cnt <span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(cnt <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> INF;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;i <span style="color:#f92672">&lt;</span> m ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b,c;
+</span></span><span style="display:flex;"><span>         cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>         edges[i] <span style="color:#f92672">=</span> {a,b,c};
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> kruskal();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(t <span style="color:#f92672">==</span> INF) cout <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;impossible&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> t <span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="二分图">二分图</h2>
+<h3 id="匈牙利算法-">**匈牙利算法 **</h3>
+<p><strong>判断二分图的最大匹配</strong></p>
+<p>根本原理 是遍历每一个点</p>
+<p>然后 去找到该点指向的点，再跟着判断 该点是否已经被别的点所匹配或是 被别的点匹配的那个点 是否可以匹配别的点 如果 可以 就会替代上一个匹配的点</p>
+<p>就是一个递归的过程</p>
+<p>主要就是 match 数组 和 st 数组</p>
+<p>for 循环里面每次都会初始化所有的为 false 原因是 让每个人都会进行完美的递归 保证了 最佳答案的出现（把所有妹子清空）即初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">550</span>,M <span style="color:#f92672">=</span> <span style="color:#ae81ff">100010</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n1,n2,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> st[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N],e[M],ne[M];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> idx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> match[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    e[idx] <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>    ne[idx] <span style="color:#f92672">=</span> h[a];
+</span></span><span style="display:flex;"><span>    h[a] <span style="color:#f92672">=</span> idx<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">find</span>(<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> h[x]; i <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i <span style="color:#f92672">=</span> ne[i])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> e[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>st[j])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            st[j] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(match[j] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> find(match[j]))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                match[j] <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n1 <span style="color:#f92672">&gt;&gt;</span> n2 <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    memset(h,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">sizeof</span> h);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+</span></span><span style="display:flex;"><span>        add(a,b);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>n1;i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        memset(st,false,<span style="color:#66d9ef">sizeof</span> st);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(find(i)) res <span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> res <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="染色法判断"><strong>染色法判断</strong></h3>
+<p><strong>是否为二分图</strong></p>
+<p>利用染色 1，2 来给点做上标记，并利用 dfs 的过程来进行深度的判断</p>
+<p>如果 bool 类型的 dfs 返回 false 的话，代表染色失败，即存在冲突，不满足二分图的性质</p>
+<p>如果当前点没有染色，就利用 dfs 把他染成 3 - x 色，如果有颜色 并且相等的话</p>
+<p>直接返回 false</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>,M <span style="color:#f92672">=</span> <span style="color:#ae81ff">200010</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N],e[M],ne[M],idx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> color[N];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    e[idx] <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>    ne[idx] <span style="color:#f92672">=</span> h[a]; 
+</span></span><span style="display:flex;"><span>    h[a] <span style="color:#f92672">=</span> idx <span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> u,<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    color[u] <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> h[u] ; i <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i <span style="color:#f92672">=</span> ne[i])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> e[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>color[j])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>dfs(j,<span style="color:#ae81ff">3</span><span style="color:#f92672">-</span>x)) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(color[j] <span style="color:#f92672">==</span> x) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m ;
+</span></span><span style="display:flex;"><span>    memset(h, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">sizeof</span> h);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(m <span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a,b;
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+</span></span><span style="display:flex;"><span>        add(a,b),add(b,a);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> flag <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;i <span style="color:#f92672">&lt;=</span> n ; i <span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>color[i])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>dfs(i,<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                flag <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(flag) cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Yes&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;No&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="topsort-dfs-bfs">Topsort Dfs Bfs</h2>
+<h3 id="topsort-拓扑排序"><strong>topsort</strong> 拓扑排序</h3>
+<p>利用入度来进行判断 找到所有入度为 0 的点把其加入队列中</p>
+<p>最好利用手动模拟队列 这样会对结果的输出起到简化作用</p>
+<p>在循环中，如果存在入度为 1 的情况出现时，也会把该值加入到队列中，因为他同样可以满足拓扑的条件</p>
+<h3 id="dfs-深度优先遍历"><strong>Dfs</strong> 深度优先遍历</h3>
+<p>dfs 主要是一个利用递归的过程</p>
+<p>深度优先遍历</p>
+<p>可以处理排列数字等问题</p>
+<h3 id="bfs-宽度优先遍历"><strong>Bfs</strong> 宽度优先遍历</h3>
+<p>宽度优先遍历</p>
+<p>bfs 主要利用队列来进行存储，当队列中的元素不为空的时候，会一直继续下去，每次推入满足条件的点，最后找到最短的路径或者是迷宫的出路</p>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+
