@@ -29,6 +29,9 @@
     <loc>http://localhost:1313/note/test_note2/</loc>
     <lastmod>2025-02-11T00:48:53-08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/note/note3/</loc>
+    <lastmod>2024-12-02T19:13:58-08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>
