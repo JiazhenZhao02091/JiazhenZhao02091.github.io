@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Math - 赵家振 | Website</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">赵家振 | Website</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../graph/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Math</a>
+</li>
+                                    
+<li>
+    <a href="../sort/" class="dropdown-item">sort</a>
+</li>
+                                    
+<li>
+    <a href="../dataStructure/" class="dropdown-item">dataStructure</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../useGuide/" class="nav-link">UseGuide</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../graph/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../sort/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">数论</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">数论</h1>
+<p>质数</p>
+<p>约数</p>
+<p>欧拉函数</p>
+<p>欧几里得</p>
+<p>高斯消元</p>
+<p>中国剩余定理</p>
+<p>容斥原理</p>
+<p>博弈论</p>
+<p><strong>组合数求法</strong></p>
+<p><strong>预处理之后进行询问的时间复杂度为          O（1）；</strong></p>
+<p>1，<strong>对于询问次数较多，并且给定 ab 不大的值，</strong>可以利用递推进行<strong>预处理</strong>，处理出 从 C11 到 Cab 的值       n2</p>
+<p>利用了公式
+$$
+C[a][b] = c[a-1][b] + c[a-1][b-1]
+$$</p>
+<blockquote>
+<p>1≤n≤100001≤n≤10000,
+1≤b≤a≤2000</p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int mod = 1e9 + 7;
+const int N = 2010;
+int c[N][N];
+void init()
+{
+    c[1][1] = 1;
+    for(int i = 0;i&lt;  N ; i ++)
+        for(int j = 0; j &lt;= i ; j++)
+        if(!j) c[i][j] = 1;
+        else c[i][j] = (c[i-1][j] + c[i-1][j-1]) % mod;
+}
+int main(void)
+{
+    init();
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        cout &lt;&lt; c[a][b] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>2，<strong>对于询问次数不算特别多，并且给定 ab 的值较大的值</strong>，可以利用组合数的逆推（上下阶乘） 方式，<strong>预处理</strong>出来 分子的阶乘和分母的阶乘的逆元，然后直接利用公式输出 res 即可    nlogn
+$$
+C[a][b] = a! / (b! * (a - b)!)
+$$</p>
+<blockquote>
+<p>1≤n≤100001≤n≤10000,
+1≤b≤a≤105</p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+const int mod = 1e9 + 7;
+const int N = 1e5 + 10;
+int fact[N],infact[N];
+int qmi(int a,int k,int p)
+{
+    int res = 1 % p;
+    while(k)
+    {
+        if(k &amp; 1) res =(LL) res * a % p;
+        a = (LL) a * a % p;
+        k = k &gt;&gt; 1;
+    }
+    return res;
+}
+int main(void)
+{
+    fact[0] = infact[0] = 1;
+    for(int i = 1;  i&lt; N ; i ++)
+    {
+        fact[i] = (LL)i * fact[i-1] % mod;
+        infact[i] = (LL)infact[i - 1] * qmi(i,mod-2,mod) % mod;
+    }
+    int n;
+    cin &gt;&gt; n;
+    while(n --)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        cout &lt;&lt; (LL)fact[a] * infact[b] % mod * infact[a-b] % mod&lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>3，<strong>对于询问次数不多，给出 ab 的值特别大的值</strong>，可以利用 lucase 定律来求，<strong>Cab = Ca%pb%p * Ca/pb/p</strong>；这里需要注意的点主要是 返回 lucase 定律的值必须时 lucasa/p,b/p 因为 可能再 ab 除以 p 之后的到的值仍然大于大于p，这样的话求 Cab 可能会出现错误；</p>
+<p>求 Cab 时利用的公式是分母到分子的阶乘比上分子从一到它本身的阶乘利用逆元来求</p>
+<p>$$
+<strong>Cba=a!/b!(a−b)!=(a−b+1)×(a−b+2)×…×a/b!</strong>
+$$</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+typedef long long LL;
+
+
+int qmi(int a, int k, int p)
+{
+    int res = 1;
+    while (k)
+    {
+        if (k &amp; 1) res = (LL)res * a % p;
+        a = (LL)a * a % p;
+        k &gt;&gt;= 1;
+    }
+    return res;
+}
+
+
+int C(int a, int b, int p)
+{
+    if (b &gt; a) return 0;
+
+    int res = 1;
+    for (int i = 1, j = a; i &lt;= b; i ++, j -- )
+    {
+        res = (LL)res * j % p;
+        res = (LL)res * qmi(i, p - 2, p) % p;
+    }
+    return res;
+}
+
+
+int lucas(LL a, LL b, int p)
+{
+    if (a &lt; p &amp;&amp; b &lt; p) return C(a, b, p);
+    return (LL)C(a % p, b % p, p) * lucas(a / p, b / p, p) % p;
+}
+
+
+int main()
+{
+    int n;
+    cin &gt;&gt; n;
+
+    while (n -- )
+    {
+        LL a, b;
+        int p;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; p;
+        cout &lt;&lt; lucas(a, b, p) &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</code></pre>
+<p>4，<strong>对于所求的值不进行 取模的运算</strong></p>
+<p>分为三步走，第一步用质数筛法，筛出前n个数中的质数，第二步，利用除法求出每个数质因数的倍数的个数，然后利用高精度乘法求出最终p的结果</p>
+<p><img alt="image-20220403165426918" src="C:\Users\赵英俊\AppData\Roaming\Typora\typora-user-images\image-20220403165426918.png" /></p>
+<p>上面的数的阶乘和下面两个数的阶乘都可以用数学基本定理来分解</p>
+<p>然后再上下再去掉相同的指数再相乘就行</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int N = 5010;
+int primes[N];
+bool st[N];
+int cnt;
+int sum[N];
+void get_primes(int n)
+{       
+    for(int i = 2;i&lt;=n;i++)
+    {
+        if(!st[i]) primes[cnt++] = i;
+        for(int j = 0;primes[j] &lt;=n/i;j++)
+        {
+            st[primes[j] * i] = true;
+            if(i % primes[j] == 0) break;
+        }
+    }
+}
+int get(int x,int p)
+{
+    int res = 0;
+    while(x)
+    {
+        res += x/p;
+        x /= p; // 一直把 p 的 k 次方也去掉
+    }
+    return res;
+}
+vector&lt;int&gt; mul(vector&lt;int&gt; a,int b)
+{
+    vector&lt;int&gt; c;
+    int t = 0;
+    for(int i = 0;i&lt;a.size();i++)
+    {
+        t = t + a[i] *b;
+        c.push_back(t%10);
+        t = t/10;
+    }
+    while(t)
+    {
+        c.push_back(t%10);
+        t = t /10;
+    }
+    return c;
+}
+int main(void)
+{
+    int a,b;
+    cin &gt;&gt; a&gt;&gt; b;
+    get_primes(a); // 筛选出了质数
+    for(int i = 0;i &lt; cnt;i++)
+    {
+        int p = primes[i];
+        sum[i] = get(a,p) - get(a-b,p) - get(b,p);// 这里枚举所有可能存在的质数 并除去 得到除之后的质数的数量；；
+    }
+    vector&lt;int&gt; res;
+    res.push_back(1);
+    for(int i = 0;i&lt;cnt;i++)
+        for(int j = 0;j&lt;sum[i];j++)
+            res = mul(res,primes[i]); // 这里进行相乘；；
+    for(int i = res.size() -1; i&gt;=0;i--) cout &lt;&lt; res[i];
+    cout &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p><strong>质数</strong></p>
+<p><strong>试除法求质数</strong></p>
+<p>可以利用 n/i 来进行优化，因为所有的约数都是<strong>一对一对</strong>的出现的，d 能整除 n ，n/d 也能整除 n ，所以说就可以进行优化，把 n 换成 n/i 来缩小范围  ： 如果 n/i 之后存在树使 x 不为质数，那么，在 n/i 之前一定也存在这样的数</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bool check(int x)
+{
+    if(x == 2 ) return true;
+    if(x == 1 || x == 0) return false;
+    for(int i = 2; i &lt;= x / i ; i ++)
+    {
+        if(x % i == 0) return false;
+    }
+    return true;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n --)
+    {
+        int x;
+        cin &gt;&gt; x;
+        if(check(x)) cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
+        else cout &lt;&lt;&quot;No&quot; &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>分解质因数</strong></p>
+<p>由算术基本定理可以知道，任何一个数都可以分解为质数的指数形式的乘积和</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+void get_primes(int x)
+{
+    for(int i =2 ; i &lt;= x / i ; i ++)
+    {
+        if(x%i == 0)
+        {
+            int s = 0;
+            while( x % i == 0) {
+                s++;
+                x = x / i;
+            }
+            cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; s &lt;&lt; endl;
+        }
+    }
+    if(x &gt; 1) cout &lt;&lt; x &lt;&lt;&quot; &quot; &lt;&lt; 1 &lt;&lt; endl;
+    cout &lt;&lt; endl;
+}
+int main()
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int x;
+        cin &gt;&gt; x;
+        get_primes(x);
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>筛质数</strong></p>
+<p>朴素做法是筛掉所有<strong>数</strong>后面的数 </p>
+<p>埃式筛法是筛掉所有<strong>质数</strong>后面的数</p>
+<p>线性筛法是通过<strong>质因子来筛掉所有质数</strong>后面的数 1e7 会比上一个快一倍</p>
+<p>线性筛法 判断条件 if 成立时保证了 i 的最小质因子是 pj ，同时 i*pj 的最小质因子也是 pj </p>
+<p>当 if 条件不成立时，保证了 i*pj 的最小质因子是 pj；且 pj 一定小于 i 的所有质因子</p>
+<p>每个合数都会有一个最小质因子，当 i 枚举到 x/i 的时候，x 一定会被筛掉</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 1e6 +10;
+bool st[N];
+int primes[N],cnt;
+void get_primes(int n)
+{
+    for(int i = 2; i &lt;= n ; i++)
+    {
+        if(!st[i]) primes[cnt ++] = i;
+        for(int j = 0 ; primes[j] &lt;= n/i ; j ++)
+        {
+            st[i * primes[j]] = true;
+            if(i % primes[j] == 0) break;
+        }
+    }
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    get_primes(n);
+    cout &lt;&lt; cnt &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p><strong>约数</strong></p>
+<p><strong>试除法求约数</strong></p>
+<p>可以利用 i    !=  n/i 来进行优化 ，因为质数是一对一对的出现的，所以可以用这个式子进行提前的判断，得到大于 n/i 的约数，并且可以防止出现平方数相同的情况</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+void get_divisors(int x)
+{
+    vector&lt;int&gt; res ;
+    for(int i = 1 ; i &lt;= x/ i; i ++)
+    {
+        if(x % i ==0)
+        {
+            res.push_back(i);
+            if(i != x/i) res.push_back(x/i);
+        }
+    }
+    sort(res.begin(),res.end());
+    for(auto x : res) cout &lt;&lt; x &lt;&lt; &quot; &quot; ;
+    cout &lt;&lt; endl;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n --)
+    {
+        int x;
+        cin &gt;&gt; x;
+        get_divisors(x);
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>约数个数</strong></p>
+<p>一个数可以根据算术基本定理进行划分，划分之后，约数的个数就是 所有指数项+1 的乘积和；</p>
+<p>因为这个数的每一个数也都可以利用算术基本定里进行划分，得到不同的质数的指数，所以需要进行 <strong>+1</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;unordered_map&gt;
+using namespace std;
+const int mod = 1e9 + 7;
+int n;
+unordered_map&lt;int,int&gt;primes;
+void get(int x)
+{
+
+    for(int i = 2; i &lt;= x/ i; i++)
+    {
+        if(x % i == 0)
+        {
+            while(x % i == 0) primes[i]++,x/=i;
+        }
+    }
+    if(x &gt; 1) primes[x] ++;
+}
+int main(void)
+{
+    cin &gt;&gt; n;
+    while(n --)
+    {
+        int x;
+        cin &gt;&gt; x;
+        get(x);
+
+    }
+    long long res = 1;
+    for(auto prime : primes) res = (long long ) res * (prime.second + 1)  % mod;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+} 
+</code></pre>
+<p><strong>约数之和</strong></p>
+<p>一个数可以根据算术基本定理进行划分，划分之后，每个质数的从零次方到这个质数指数的乘积和再相乘之后的到约数的之和</p>
+<p>因为每个数都可以利用算术基本定理进行划分，上面的乘积式，乘开之后从零次方到他指数次方的所有结果都会出现，又因为是乘积式所以会进行累加从而得到最后的结果</p>
+<p><strong>从0次方到b次方的乘积</strong></p>
+<p>t = (t * a + 1)循环  b  次，t 从 1 开始</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+const int mod = 1e9 +7;
+unordered_map&lt;int,int&gt; primes;
+void get(int x)
+{
+    for(int i = 2;i &lt;= x/i;i++)
+    {
+        while(x%i == 0)
+        {
+            x = x / i;
+            primes[i]++;
+        }
+    }
+    if(x &gt; 1) primes[x] ++;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int x;
+        cin &gt;&gt; x;
+        get(x);
+    }
+    LL res = 1;
+    for(auto prime : primes)
+    {
+        LL a = prime.first;
+        LL b = prime.second;
+        LL t = 1; 
+        while(b -- ) t = (t * a + 1) % mod; // Important;;
+        res = res * t %mod;
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p><strong>最大公约数</strong></p>
+<p>d 能整除 a，d 能整除 b，d 就能整除 a+b，d 就能整除 ax+by</p>
+<p>因此 a 和 b 的最大公约数就等与 b 和 a%b 的最大公约数</p>
+<p>因为 a %b 可以看成 a - c*b</p>
+<p>再由上面的式子得出结果即可</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int gcd(int a,int b)
+{
+    return b ? gcd(b,a%b) : a;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        cout &lt;&lt; gcd(a,b) &lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>最小公倍数</strong></p>
+<p>就是 a*b / gcd(a,b);</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int gcd(int a,int b)
+{
+    return b ? gcd(b,a%b) : a;
+}
+int lcm(int a,int b)
+{
+    return a * b / gcd(a,b);
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        cout &lt;&lt; lcm(a,b) &lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>**欧拉函数 **</p>
+<p><img alt="image-20220212204839352" src="C:\Users\赵英俊\AppData\Roaming\Typora\typora-user-images\image-20220212204839352.png" /></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+LL oula(int x)
+{
+    LL res = x;
+    for(int i = 2;i &lt;= x/i;i++)
+    {
+        if(x% i == 0)
+        {
+            while(x % i == 0)
+            {
+                x = x/i;
+            }
+            res =  (LL) res / i * (i-1);
+        }
+    }
+    if(x &gt; 1) res = (LL) res / x *(x-1);
+    return res;
+}
+int main(void)
+{
+    int n;
+    cin&gt;&gt; n;
+    while(n--)
+    {
+        int x;
+        cin &gt;&gt; x;
+        cout &lt;&lt; oula(x) &lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>容斥原理</p>
+<p><strong>筛法求欧拉函数</strong></p>
+<p>当该数为质数的时候，该数的欧拉函数为 n-1；</p>
+<p>线性筛时，若 pj 是 pj*i 的最小质因子时，由欧拉定理可以知道该最小质因子一定乘过了，所以只需要将 e[i] * pj 即可；</p>
+<p>若 pj 不是 pj*i 的最小质因子时 需要加上 pj * (pj - 1) / pj  所以得到 e[i] * (pj - 1);</p>
+<p><strong>快速幂</strong></p>
+<p>把 a 的 k 次方上面的 k  转化成二进制的数 ，然后利用二进制的数来进行相乘求解最终的 ans </p>
+<p>利用循环每次使 a 相乘变成指数平方式，同时指数 k 从第零位开始进行向前走，如果末尾等于 1 的话，就把 res * a 相当于了 a 的多少次方相乘进行</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+LL qmi(int a,int k,int p)
+{
+    LL res = 1;
+    while(k)
+    {
+        if(k &amp; 1) res = (LL)res * a %p;
+        a = (LL)a*a % p;
+        k = k &gt;&gt; 1;
+    }
+    return res;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,k,p;
+        cin &gt;&gt; a &gt;&gt; k &gt;&gt; p;
+        cout &lt;&lt; qmi(a,k,p) &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>快速幂求逆元</strong></p>
+<p>快速幂求逆元，当 b 和 p 互质的时候，根据费马小定理可以得到 b 的 -2 次方就是  b  的逆元 </p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+LL qmi(int a,int k,int p)
+{
+    LL res = 1;
+    while(k)
+    {
+        if(k &amp; 1) res = (LL)res * a %p;
+        a = (LL)a*a % p;
+        k = k &gt;&gt; 1;
+    }
+    return res;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,p;
+        cin &gt;&gt; a &gt;&gt; p;
+        LL res = qmi(a,p-2,p);
+        if(a % p == 0) cout &lt;&lt; &quot;impossible&quot; &lt;&lt; endl;
+        else cout &lt;&lt; res &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>扩展欧几里得求逆元</strong></p>
+<p><img alt="image-20220213110342018" src="C:\Users\赵英俊\AppData\Roaming\Typora\typora-user-images\image-20220213110342018.png" /></p>
+<p>求出 x 就可以得到 逆元了</p>
+<p><strong>扩展欧几里得算法</strong></p>
+<p>利用最大公约数来辗转得到最终的结果</p>
+<p>当 b 不为 0 的时候就可继续进行 a%b ；</p>
+<blockquote>
+<p>给定 nn 对正整数 ai,biai,bi，对于每对数，求出一组 xi,yixi,yi，使其满足 ai×xi+bi×yi=gcd(ai,bi)ai×xi+bi×yi=gcd(ai,bi)。</p>
+<p>给出 a,b  求出 x,y</p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int exgcd(int a,int b,int &amp;x,int &amp;y)
+{
+    if(b == 0) 
+    {
+        x = 1 , y = 0;
+        return a;
+    }
+    int d = exgcd(b,a%b,y,x);
+    y -= a/b * x;
+    return d;
+}
+int main(void)
+{
+    int n;
+    cin &gt;&gt; n;
+    while(n--)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        int x,y;
+        int d = exgcd(a,b,x,y);
+        cout &lt;&lt; x&lt;&lt;&quot; &quot; &lt;&lt;  y &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>输入规模在10的5次方以内，可以用 cin 和 scanf 差别不大</strong></p>
+<p><strong>大于 10 的 5 次方之后，用 scanf 可以比 cin 快一倍左右</strong></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

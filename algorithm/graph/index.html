@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Graph - 赵家振 | Website</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">赵家振 | Website</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../math/" class="dropdown-item">Math</a>
+</li>
+                                    
+<li>
+    <a href="../sort/" class="dropdown-item">sort</a>
+</li>
+                                    
+<li>
+    <a href="../dataStructure/" class="dropdown-item">dataStructure</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../useGuide/" class="nav-link">UseGuide</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../about/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../math/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">图论算法</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">最短路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">最小生成树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">二分图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#topsort-dfs-bfs" class="nav-link">Topsort Dfs Bfs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">图论算法</h1>
+<h2 id="_2">最短路</h2>
+<p><strong>能用dijkstra的就别用spfa</strong></p>
+<h3 id="dijkstra"><strong>Dijkstra 算法</strong></h3>
+<p><a href="https://www.acwing.com/solution/content/6320/">题解</a></p>
+<p>朴素用邻接矩阵存储           // 稠密图 点少线多</p>
+<p>1.循环 n 次</p>
+<p>2.找到一个 t 用来代表当前所有点到目前点的最短距离</p>
+<p>3.用 t 来更新到这个点的最短距离</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 550;
+int g[N][N];
+int dist[N];
+bool st[N];
+int n,m;
+void dijkstra()
+{
+    memset(dist,0x3f,sizeof dist);
+    dist[1] = 0;
+    for(int i = 0 ; i &lt;  n; i ++)
+    {
+        int t = -1;
+        for(int j = 1; j &lt;= n ; j ++)
+            if(!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))
+                t = j ;
+        for(int j = 1 ;j &lt;= n ; j ++)
+            dist[j] = min(dist[j],dist[t] + g[t][j]);
+        st[t] = true;
+    }
+}
+int main(void)
+{
+    memset(g,0x3f,sizeof g);
+    cin &gt;&gt; n &gt;&gt; m ;
+    while(m --)
+    {
+        int a,b,c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+        g[a][b] = min(g[a][b],c);
+    }
+    dijkstra();
+    if(dist[n] == 0x3f3f3f3f) cout &lt;&lt; -1 &lt;&lt; endl;
+    else cout &lt;&lt; dist[n] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="dijkstr"><strong>优化版的dijkstr 算法</strong></h3>
+<p>稀疏图 用邻接矩阵来存储</p>
+<p>用堆进行优化 每次取最短值的时候 取堆顶元素</p>
+<p><strong>相当于是省略了朴素版dijkstra 的找到距离当前点最短距离这一步；；</strong></p>
+<p>代替上边的第一二步</p>
+<p>然后更新所有堆的距离</p>
+<p>用一个 pair <int,int>  数组来存储到起点的距离和当前点的编号</p>
+<p>用邻接表遍历所有到达的点 并对其进行判断 如果小于 并且该值并未被使用过  即 st 为 false  可以进行更新</p>
+<p>就把该值和距离推进 heap 数组中 </p>
+<p>这里 与 spfa 算法进行个区分  </p>
+<ul>
+<li>
+<p>dijsktra 算法一般在取得编号后就进行判断 是否进行 continue 环节</p>
+</li>
+<li>
+<p>spfa 算法 则在 for 循环和 if 循环 之后判断该值是否使用过</p>
+</li>
+<li>dijkstra保证了每个点只会被使用一次，而spfa则一个点可能被多次使用</li>
+</ul>
+<blockquote>
+<p>​ SPFA可以处理负权边，但是不能处理有负权回路的图；而Dijkstra不能处理带有负权边和负权回路的图，因为Dijkstra算法在计算最短路径时，不会因为负边的出现而更新已经计算过(收录过)的顶点的路径长度；
+​ 总结一下：Bellman-ford可以处理任意带负权边和负权环的图，SPFA可以处理带负权边的图，Dijkstra只能处理带正权边的图；当然，从时间复杂度的效率来讲，是反过来的，hh</p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;queue&gt;
+#include &lt;cstring&gt;
+using namespace std;
+typedef pair&lt;int,int&gt; PII;
+const int N = 1e6 + 10;
+int h[N],e[N],ne[N],w[N],idx;
+int dist[N];
+bool st[N];
+int n,m;
+void add(int a,int b,int c)
+{
+    e[idx] = b;
+    w[idx] = c;
+    ne[idx] = h[a];
+    h[a] = idx ++;
+}
+void dijkstra()
+{
+    memset(dist,0x3f,sizeof dist);
+    priority_queue &lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt; &gt;heap;
+    dist[1] = 0;
+    heap.push({0,1});
+    while(heap.size())
+    {
+        auto t = heap.top();
+        heap.pop();
+        int ver = t.second;
+        int s = t.first;
+        if(st[ver]) continue;
+        st[ver] = true;
+        for(int i = h[ver]; i != -1 ; i = ne[i])
+        {
+            int j = e[i];
+            if(dist[j] &gt; dist[ver] + w[i])
+            {
+                dist[j] = dist[ver] + w[i];
+                heap.push({dist[j],j});
+            }
+        }
+    }
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m ;
+    memset(h,-1,sizeof h);
+    while(m--)
+    {
+        int a,b,c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c ;
+        add(a,b,c);
+    }
+    dijkstra();
+    if(dist[n] == 0x3f3f3f3f) cout &lt;&lt; -1 &lt;&lt; endl;
+    else cout &lt;&lt; dist[n] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="bellman_ford"><strong>Bellman_ford</strong> 算法</h3>
+<p>用于处理存在负权边的环节  并且存在 判断至少在几条边实现</p>
+<p><strong>利用结构体来存储</strong></p>
+<p>第一层 for 循环代表最短几条边</p>
+<p>接下来对所有的边进行遍历，用 struct 来对每条边取最短的路径</p>
+<p>为了避免出   行比对</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 550,M = 10010;
+
+struct Edge
+{
+    int a,b,c;
+}edges[M];
+int n,m,k;
+int dist[N];
+int last[N];
+void bellman_ford()
+{
+    memset(dist,0x3f,sizeof dist);
+    dist[1] = 0;
+    for(int i = 0 ; i &lt; k ;i ++)
+    {
+        memcpy(last,dist,sizeof dist);
+        for(int j = 0 ; j&lt; m ; j ++)
+        {
+            auto e = edges[j];
+            dist[e.b] = min(dist[e.b], last[e.a] + e.c);
+        }
+    }
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    for(int i = 0;i&lt;m;i++)
+    {
+        int x,y,z;
+        cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+        edges[i] = {x,y,z};
+    }
+    bellman_ford();
+    if (dist[n] &gt; 0x3f3f3f3f / 2) puts(&quot;impossible&quot;);
+    else printf(&quot;%d\n&quot;, dist[n]);
+    return 0;
+}
+</code></pre>
+<h3 id="spfa"><strong>Spfa 算法</strong></h3>
+<p><a href="https://www.acwing.com/solution/content/9306/">题解</a></p>
+<p>是基于bellman_ford 算法的一种优化</p>
+<p>因为bellman 算法是对所有的边都进行了取最短距离</p>
+<p>而   Spfa  算法则是利用 队列 来存储每次取得到的 最短距离</p>
+<p>并用这个 距离 来更新别的距离</p>
+<p>bellman 算法 保留了所有到这个点的前一个点的最短距离，但这样的话 无疑会有一些边是未曾用过的</p>
+<p>而 spfa 算法就是只记录了会被更新的节点 并 用这个点来更新别的点</p>
+<p>用 for 循环 来遍历所有与当前点有接触的所有点</p>
+<p>然后用队列将该点存下来 在每次遍历队列中的点 以此为延续不断连接所有可能会遇到的点</p>
+<p>即该点用到了 就会 继续更新它后面的点</p>
+<p>Bellman_ford算法会遍历所有的边，但是有很多的边遍历了其实没有什么意义，我们只用遍历那些到源点距离变小的点所连接的边即可，只有当一个点的前驱结点更新了，该节点才会得到更新；因此考虑到这一点，我们将创建一个队列每一次加入距离被更新的结点。</p>
+<blockquote>
+<p>关于为什么</p>
+<p>每次只会讲修改过的边加入进去</p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;queue&gt;
+using namespace std;
+const int N = 1e5 +10;
+int h[N],w[N],e[N],ne[N],idx;
+int dist[N];
+bool st[N];
+void add(int a,int b,int c)
+{
+    e[idx] = b;
+    w[idx] = c;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+void spfa()
+{
+    memset(dist,0x3f,sizeof dist);
+    dist[1] = 0;
+    queue&lt;int&gt;q;
+    q.push(1);
+    st[1] = true;
+    while(q.size())
+    {
+        int t = q.front();
+        q.pop();
+        st[t] = false;
+        for(int i = h[t] ; i != -1 ; i = ne[i])
+        {
+            int j = e[i];
+            if(dist[j] &gt; dist[t] + w[i])
+            {
+                dist[j] = dist[t] + w[i];
+                if(!st[j]) // 这里只会存放已经被更新过的边 ，， 如果被更新了 且不再队列中才会被继续添加
+                {
+                    q.push(j);
+                    st[j] = true;
+                }
+            }
+        }
+    }
+}
+int main(void)
+{
+    int n,m;
+    cin &gt;&gt; n &gt;&gt; m;
+    memset(h,-1,sizeof h);
+    while(m --)
+    {
+        int a,b,c;
+        cin &gt;&gt; a&gt;&gt; b &gt;&gt; c;
+        add(a,b,c);
+    }
+    spfa();
+    if(dist[n] == 0x3f3f3f3f) cout &lt;&lt; &quot;impossible&quot; &lt;&lt; endl;
+    else cout &lt;&lt; dist[n] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="foyld"><strong>Foyld 算法</strong></h3>
+<p>用 邻接表来存储   但是 为什么这样 初始化 </p>
+<p>因为 g 数组中存储的就是点到点的距离，所以当 i == j 的时候 距离为 0 ，所以初始化为 0；</p>
+<p>k i j</p>
+<p>g[i][j] = min(g[i][j] , g[i][k] + g[k][j]);</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 210,INF = 1e9;
+int g[N][N];
+int n,m,q;
+void Floyd()
+{
+    for(int k = 1 ;k &lt;= n ;k ++)
+        for(int i = 1 ;i &lt;= n ; i ++)
+            for(int j = 1; j &lt;= n ;j ++)
+            g[i][j] = min(g[i][j] , g[i][k] + g[k][j]);
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+    for(int i = 1; i &lt;= n ; i ++)
+        for(int j = 1; j &lt;= n ; j ++)
+            if(i == j) g[i][j] = 0;
+            else g[i][j] = INF;
+    while(m --)
+    {
+        int a,b,c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+        g[a][b] = min(g[a][b] , c);
+    }
+    Floyd();
+    while(q -- )
+    {
+        int x,y;
+        cin &gt;&gt; x &gt;&gt; y;
+        if(g[x][y] &gt; INF / 2) cout &lt;&lt;&quot;impossible&quot; &lt;&lt; endl;
+        else cout &lt;&lt; g[x][y] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="_3">最小生成树</h2>
+<h3 id="prim"><strong>Prim 算法</strong></h3>
+<p><strong>处理稠密图</strong></p>
+<p>主要是利用<strong>扩大集合</strong>的思想来做的 ，不断找到距离当前集合最近的点，并把他加入</p>
+<p>与 dijkstra 算法类似</p>
+<p>枚举 n 次 </p>
+<p>找到距离集合最近的点 t </p>
+<p>用 t 来更新其他点到集合的距离</p>
+<p>利用 res 记录所有不是第一条边的时候的权重和</p>
+<p>当出现不是第一条边并且最近距离也是趋近于正无穷时，直接结束</p>
+<p>返回 false</p>
+<p>最后使用 g[t] [j]  时，关于为什么使用它的原因是，需要找到当前点距离集合最近的点，又因为 dist 本身保存的就是当前点到第一个点即集合的距离，再加上前面每次循环找到的都是距离上一个点的最近距离，所以说<strong>当 dist 不是最近的距离时 最近的距离就是 g</strong>   ，，因为上面每次的都是取到了距离的最小值</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int N = 550,INF = 0x3f3f3f3f;
+const int M = 1e5+10;
+int g[N][N];
+bool st[N];
+int dist[N];
+int res;
+int n,m;
+int Prim()
+{
+   memset(dist,0x3f,sizeof dist);
+    int res = 0 ;
+    for(int i = 0 ; i &lt; n ; i ++)
+    {
+        int t = -1;
+        for(int j = 1; j &lt;= n ; j++)
+        {
+            if(!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))
+                t = j;
+        }
+        if(i &amp;&amp; dist[t] == INF) return INF;
+        if(i) res += dist[t];
+        for (int j = 1; j &lt;= n; j ++ ) dist[j] = min(dist[j], g[t][j]); // 记录到集合的距离，而不是跟最短路一样到起点的距离
+        st[t] = true;
+    }
+    return res;
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    memset(g,0x3f,sizeof g);
+    while(m--)
+    {
+        int a,b,c;
+        cin &gt;&gt; a&gt;&gt; b &gt;&gt; c;
+        g[a][b] = g[b][a] = min(g[a][b],c);
+    }
+    int res = Prim();
+    if(res == 0x3f3f3f3f) cout &lt;&lt; &quot;impossible&quot; &lt;&lt; endl;
+    else cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="kruskal"><strong>Kruskal 算法</strong></h3>
+<p>处理稀疏图</p>
+<p>通过结构体**按照权重来进行排序 ** 排序保证是最小生成树</p>
+<p>利用并查集和结构体来存储边和权重</p>
+<p>每次如果两点之间没有联系则利用并查集 进行  两两  相加 记录权重和 count </p>
+<p>如果 cnt &lt; n-1 则不存在最小生成树，否则输出权值</p>
+<pre><code class="language-c++">#include &lt; iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 1e5 +10 , M = 200010;
+const int INF = 0x3f3f3f3f;
+int p[N];
+int n,m;
+struct Edges
+{
+    int a,b,w;
+    bool operator &lt; (const Edges &amp; W)const
+    {
+        return w &lt; W.w;
+    }
+}edges[M];
+int find(int x)
+{
+    if(x != p[x]) p[x] =  find(p[x]);
+    else return p[x];
+}
+int kruskal()
+{
+    int cnt = 0 , res = 0;
+    sort(edges,edges + m);
+    for(int i = 1; i &lt;= n ; i ++) p[i] = i;
+    for(int i = 0 ; i &lt; m ; i ++)
+    {
+        int a = edges[i].a , b = edges[i].b , w = edges[i].w;
+        a = find(a),b = find(b);
+        if(a != b)
+        {
+            p[a] = b;
+            res += w;
+            cnt ++;
+        }
+    }
+    if(cnt &lt; n-1) return INF;
+    return res;
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 0 ;i &lt; m ; i ++)
+    {
+        int a,b,c;
+         cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+         edges[i] = {a,b,c};
+    }
+    int t = kruskal();
+    if(t == INF) cout &lt;&lt;&quot;impossible&quot; &lt;&lt; endl;
+    else cout &lt;&lt; t &lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h2 id="_4">二分图</h2>
+<h3 id="_5">**匈牙利算法 **</h3>
+<p><strong>判断二分图的最大匹配</strong></p>
+<p>根本原理 是遍历每一个点</p>
+<p>然后 去找到该点指向的点，再跟着判断 该点是否已经被别的点所匹配或是 被别的点匹配的那个点 是否可以匹配别的点 如果 可以 就会替代上一个匹配的点</p>
+<p>就是一个递归的过程</p>
+<p>主要就是 match 数组 和 st 数组</p>
+<p>for 循环里面每次都会初始化所有的为 false 原因是 让每个人都会进行完美的递归 保证了 最佳答案的出现（把所有妹子清空）即初始化</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int N = 550,M = 100010;
+int n1,n2,m;
+bool st[N];
+int h[N],e[M],ne[M];
+int idx;
+int match[N];
+void add(int a,int b)
+{
+    e[idx] = b;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+bool find(int x)
+{
+    for(int i = h[x]; i != -1 ; i = ne[i])
+    {
+        int j = e[i];
+        if(!st[j])
+        {
+            st[j] = true;
+            if(match[j] == 0 || find(match[j]))
+            {
+                match[j] = x;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+int main(void)
+{
+    cin &gt;&gt; n1 &gt;&gt; n2 &gt;&gt; m;
+    memset(h,-1,sizeof h);
+    while(m--)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        add(a,b);
+    }
+    int res = 0;
+    for(int i = 1;i&lt;=n1;i++)
+    {
+        memset(st,false,sizeof st);
+        if(find(i)) res ++;
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="_6"><strong>染色法判断</strong></h3>
+<p><strong>是否为二分图</strong></p>
+<p>利用染色 1，2 来给点做上标记，并利用 dfs 的过程来进行深度的判断</p>
+<p>如果 bool 类型的 dfs 返回 false 的话，代表染色失败，即存在冲突，不满足二分图的性质</p>
+<p>如果当前点没有染色，就利用 dfs 把他染成 3 - x 色，如果有颜色 并且相等的话</p>
+<p>直接返回 false</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt; 
+using namespace std;
+const int N = 1e5 + 10,M = 200010;
+int h[N],e[M],ne[M],idx;
+int color[N];
+int n,m;
+void add(int a,int b)
+{
+    e[idx] = b;
+    ne[idx] = h[a]; 
+    h[a] = idx ++;
+}
+bool dfs(int u,int x)
+{
+    color[u] = x;
+    for(int i = h[u] ; i != -1 ; i = ne[i])
+    {
+        int j = e[i];
+        if(!color[j])
+        {
+            if(!dfs(j,3-x)) return false;
+        }
+        else if(color[j] == x) return false;
+    }
+    return true;
+}
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m ;
+    memset(h, -1, sizeof h);
+    while(m --)
+    {
+        int a,b;
+        cin &gt;&gt; a &gt;&gt; b;
+        add(a,b),add(b,a);
+    }
+    bool flag = true;
+    for(int i = 1 ;i &lt;= n ; i ++)
+    {
+        if(!color[i])
+        {
+            if(!dfs(i,1))
+            {
+                flag = false;
+                break;
+            }
+        }
+    }
+    if(flag) cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
+    else cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h2 id="topsort-dfs-bfs">Topsort Dfs Bfs</h2>
+<h3 id="topsort"><strong>topsort</strong> 拓扑排序</h3>
+<p>利用入度来进行判断 找到所有入度为 0 的点把其加入队列中</p>
+<p>最好利用手动模拟队列 这样会对结果的输出起到简化作用</p>
+<p>在循环中，如果存在入度为 1 的情况出现时，也会把该值加入到队列中，因为他同样可以满足拓扑的条件</p>
+<h3 id="dfs"><strong>Dfs</strong> 深度优先遍历</h3>
+<p>dfs 主要是一个利用递归的过程</p>
+<p>深度优先遍历</p>
+<p>可以处理排列数字等问题</p>
+<h3 id="bfs"><strong>Bfs</strong> 宽度优先遍历</h3>
+<p>宽度优先遍历</p>
+<p>bfs 主要利用队列来进行存储，当队列中的元素不为空的时候，会一直继续下去，每次推入满足条件的点，最后找到最短的路径或者是迷宫的出路</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
