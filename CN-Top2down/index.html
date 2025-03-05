@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>CN-Top-Down - 赵家振 | Website</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/rainbow.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">赵家振 | Website</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../algorithm/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/" class="dropdown-item">入门基本算法</a>
+</li>
+                                    
+<li>
+    <a href="../algorithm/graph/" class="dropdown-item">图论</a>
+</li>
+                                    
+<li>
+    <a href="../algorithm/math/" class="dropdown-item">数论</a>
+</li>
+                                    
+<li>
+    <a href="../algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="dropdown-item">数据结构</a>
+</li>
+                                    
+<li>
+    <a href="../algorithm/DP/" class="dropdown-item">动态规划</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">CN-Top-Down</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">南大PA指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../nju-pa/Pa1_Summary/" class="dropdown-item">pa1</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">xv6指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../xv6/" class="dropdown-item">xv6</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tools</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tools/useGuide/" class="dropdown-item">makedocs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../algorithm/DP/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../nju-pa/Pa1_Summary/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#computer-networking-a-top-down-approach-eight-edition" class="nav-link">Computer Networking: A Top-Down Approach Eight edition`</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">计算机网络和因特网</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_2" class="nav-link">运输层</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#udp" class="nav-link">无连接运输：UDP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">可靠数据传输原理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tcp" class="nav-link">有链接运输：TCP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_11" class="nav-link">公平性</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_12" class="nav-link">运输层功能演化</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_13" class="nav-link">网络层：数据平面</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_14" class="nav-link">网络层概述</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_15" class="nav-link">转发和路由</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_16" class="nav-link">路由器工作原理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ipv4" class="nav-link">IPv4数据报和寻址</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dhcp" class="nav-link">DHCP（动态主机配置协议）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#nat" class="nav-link">NAT（网络地址转换协议）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ipv6" class="nav-link">IPv6数据报和寻址</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#sdn" class="nav-link">泛化转发和SDN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_17" class="nav-link">网络层：控制平面</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_20" class="nav-link">数据链路层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_21" class="nav-link">期末速成</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_22" class="nav-link">物理层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_23" class="nav-link">数据链路层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_24" class="nav-link">网络层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_25" class="nav-link">运输层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">应用层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="computer-networking-a-top-down-approach-eight-edition">Computer Networking: A Top-Down Approach Eight edition`</h1>
+<h1 id="_1">计算机网络和因特网</h1>
+<h3 id="11">1.1</h3>
+<p>所有因特网设备被称为<strong>主机</strong>或<strong>端系统</strong></p>
+<p>端系统通过通信链路和分组交换机的网络链接到一起</p>
+<p>端系统通过因特网服务提供商（ISP）接入因特网</p>
+<p>每个ISP自身就是一个由多台分组交换机和多段通信链路组成的网络</p>
+<p>因特网标准规定了所有因特网协议的标准，称为请求评论（RFC）</p>
+<blockquote>
+<p>到底什么是因特网？</p>
+</blockquote>
+<p>因特网为应用程序提供服务的基础设施</p>
+<blockquote>
+<p>协议定义了在两个或多个对等通信实体之间交换的报文的格式和顺序，以及报文发送/接受或其他时间所采取的操作</p>
+</blockquote>
+<p>以太网是局域网技术：物理 + 协议</p>
+<h3 id="13">1.3</h3>
+<p>交换机主要有路由器和链路层交换机</p>
+<ul>
+<li>存储转发传输：在交换机开始向输出电路传输该分组的第一个比特之前，必须接收到整个分组</li>
+<li>排队时延和分组丢失：对于每条相连的链路，该分组交换机都有一个输出缓存（输出队列），用于存储路由器准备发往那条链路的分组。</li>
+<li>转发表和路由协议</li>
+<li>转发表用于将目的地址映射输出为输出链路</li>
+<li>转发局部，路由全局</li>
+</ul>
+<p>通过网络链路和交换机移动数据有两种方法：电路交换和分组交换</p>
+<ul>
+<li>电路交换：预留了端系统间沿路径通信所需要的资源（缓存，链路传输速率）</li>
+<li>频分复用（FDM）</li>
+<li>时分复用（TDM）</li>
+<li>波分复用（WDM）</li>
+<li>码分复用（CDM）</li>
+<li>分组交换：不预留，因特网尽最大努力以及时交付分组，但它不做任何保证</li>
+</ul>
+<h3 id="14">1.4</h3>
+<p>分组交换网中的时延：</p>
+<ul>
+<li>节点处理时延：检查分组字段决定导向何处</li>
+<li>排队时延：分组在链路上等待传输</li>
+<li>传输时延：将所有分组的比特推向链路的时间，路由器推出分组的时间</li>
+<li>传播时延：一个比特从链路起点到下一个节点的时间，分组从一个路由器到下一个路由器的时间</li>
+</ul>
+<p>吞吐量：</p>
+<ul>
+<li>瞬时吞吐量是主机B接收到该文件的速率</li>
+</ul>
+<h3 id="15">1.5 协议分层及其服务模型</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">协议层</th>
+<th style="text-align: center;">传输信息</th>
+<th>常见协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">应用层</td>
+<td style="text-align: center;">报文</td>
+<td>HTTP,FTP,SMTP</td>
+</tr>
+<tr>
+<td style="text-align: center;">运输层</td>
+<td style="text-align: center;">报文段</td>
+<td>TCP,UDP</td>
+</tr>
+<tr>
+<td style="text-align: center;">网络层</td>
+<td style="text-align: center;">数据报</td>
+<td>IP</td>
+</tr>
+<tr>
+<td style="text-align: center;">链路层</td>
+<td style="text-align: center;">帧</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">物理层</td>
+<td style="text-align: center;">比特</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>应用层是网络应用程序及他们的应用层协议存留的地方</li>
+<li>运输层提供流量控制和拥塞控制机制</li>
+<li>网络层包括了网际协议和一些路由选择协议</li>
+<li>网际协议（IP）定义了在数据报中的各个字段以及端系统和路由器如何作用与这些字段</li>
+<li>链路层服务取决于特定的链路层协议，负责将整个帧从当前网络元素移动至路径上的下一个网络元素</li>
+<li>物理层将链路层帧的一个个比特从一个节点移动到下一个节点</li>
+</ul>
+<h3 id="16">1.6 网络攻击</h3>
+<ul>
+<li>
+<p>拒绝服务攻击（DOS），分布式拒绝服务攻击（DDOS）</p>
+</li>
+<li>
+<p>弱点攻击</p>
+</li>
+<li>
+<p>带宽洪泛</p>
+</li>
+<li>
+<p>链接洪泛</p>
+</li>
+<li>
+<p>分组嗅探</p>
+</li>
+<li>
+<p>IP哄骗</p>
+</li>
+</ul>
+<h1 id="_2">运输层</h1>
+<ul>
+<li>
+<p>TCP：</p>
+</li>
+<li>
+<p>传输控制协议</p>
+</li>
+<li>
+<p>报文段</p>
+</li>
+<li>
+<p>UDP：</p>
+</li>
+<li>
+<p>用户数据包协议</p>
+</li>
+<li>
+<p>数据报</p>
+</li>
+<li>
+<p>将主机间交付扩展到进程间交付被称为运输层的<strong>多路复用</strong>与<strong>多路分解</strong></p>
+</li>
+<li>
+<p>将运输层报文段中的数据交付道正确的套接字的工作称为多路分解</p>
+</li>
+<li>
+<p>将来自源主机的不同数据块收集起来，并为每个数据块封装上首部信息从而生成报文段，然后将报文段传递至网络层称为多路复用</p>
+</li>
+<li>
+<p>多路复用要求：</p>
+</li>
+<li>
+<p>套接字有唯一标识符</p>
+</li>
+<li>
+<p>每个报文段有特殊字段来指示该报文段要交付的套接字</p>
+<ul>
+<li>源端口号和目的端口号</li>
+<li>端口号16比特</li>
+<li>每个运输层报文段最起码包括目的端口号和源端口号</li>
+</ul>
+</li>
+<li>
+<p>多路分解服务：</p>
+</li>
+<li>
+<p>在主机上的每个套接字能够分配一个端口号，当报文段到达主机时，运输层检查目的端口号并将其定位到相应的套接字</p>
+</li>
+<li>
+<p>一个UDP套接字是一个二元组（目的IP，目的端口号）；两个UDP报文段有不同的源IP或源端口，指向相同的目的IP和目的端口，那么两个报文段将通过相同的目的套接字被定向到<strong>相同</strong>的进程。</p>
+</li>
+<li>
+<p>一个TCP套接字是一个四元组（源IP，源端口，目的IP，目的端口）；两个TCP报文段有不同的源IP或源端口，指向相同的目的IP和目的端口，那么两个报文段将通过相同的目的套接字被定向到<strong>两个不同</strong>的进程。</p>
+</li>
+</ul>
+<h2 id="udp">无连接运输：UDP</h2>
+<ul>
+<li>UDP只在最基础的运输层需要提供的服务基础之上添加了一点差错检测服务</li>
+<li>无需连接建立</li>
+<li>无连接状态</li>
+<li>分组首部开销小</li>
+<li>关于发送什么数据以及何时发送控制更精细</li>
+<li>可以在应用层构建可靠性，从而避免了TCP协议的拥塞控制和流量控制</li>
+</ul>
+<h3 id="udp_1">UDP报文段结构</h3>
+<ul>
+<li>
+<p>源端口号，目的端口号，长度，校验和分别16比特</p>
+</li>
+<li>
+<p>校验和：发送方UDP报文段中所有16比特字的和进行反码求和时遇到的所有溢出都会回卷，得到的结果。</p>
+</li>
+<li>
+<p>UDP提供差错检测是因为不能保证从源和目的之间的所有链路都有差错检验</p>
+</li>
+</ul>
+<h2 id="_3">可靠数据传输原理</h2>
+<ul>
+<li>
+<p>发送方需要发送(函数)：</p>
+</li>
+<li>
+<p>rdt_send()</p>
+</li>
+<li>
+<p>udt_send()</p>
+</li>
+<li>
+<p>接收方需要(函数):</p>
+</li>
+<li>
+<p>deliver_data()</p>
+</li>
+<li>
+<p>rdt_rcv()</p>
+</li>
+<li>
+<p>rdt的接收方和发送方需要往返交换控制分组，调用<code>udt_send()</code></p>
+</li>
+</ul>
+<h3 id="rdt-10">rdt 1.0</h3>
+<ul>
+<li>假设底层信道完全可靠</li>
+<li>发送方使用rdt_send发送之后只需等待上层调用</li>
+<li>接收方使用rdt_rcv接受之后只需等待下层调用</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20161113211132315" width=60%></p>
+<h3 id="rdt-20">rdt 2.0</h3>
+<ul>
+<li>此时分组中的比特可能会受损</li>
+<li>发送方</li>
+<li>自动重传请求协议（ARQ）<ul>
+<li>差错检测</li>
+<li>接收方反馈：ACK和NAK</li>
+<li>重传</li>
+</ul>
+</li>
+<li>发送方并不能从<code>上层</code>获取更多的数据，rdt_send不会出现，发送方不会发送新的数据；停等协议</li>
+<li>接收方</li>
+<li>接受数据，进行差错检验，根据结果返回ACK或NAK</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20161113220707328" width="60%"></p>
+<h3 id="rdt-21">rdt 2.1</h3>
+<ul>
+<li>传送过程中ACK或者NAK受损</li>
+<li>当发送方接收到含糊不清的ACK或NAK分组时重传，但是接收方并不知道这次的分组是新的还是一次重传，<strong>冗余分组</strong></li>
+<li>发送方对数据分组进行编号，将数据分组的序号放在该字段</li>
+</ul>
+<h3 id="rdt-22">rdt 2.2</h3>
+<ul>
+<li>在<code>rdt 2.1</code>的基础上去掉了NAK</li>
+<li>接收方和发送方需要附带分组序号</li>
+</ul>
+<h3 id="rdt-30">rdt 3.0（比特交替协议）</h3>
+<ul>
+<li>假设除了比特受损之外，底层信道还会丢包</li>
+<li>
+<p>定时重传，设置一个倒数计时器，发送方每发送一个分组就会启动一个倒数计时器</p>
+</li>
+<li>
+<p>数据传输协议的要点：校验和、序号、定时器、肯定与否定确认</p>
+</li>
+</ul>
+<h3 id="_4">流水线协议</h3>
+<ul>
+<li>停等协议浪费了大量资源，所以引入了流水线机制</li>
+<li>引入流水线机制必须对RDT协议做出改变</li>
+<li>增加序号范围</li>
+<li>协议发送方和接收方需要缓存多个分组</li>
+<li>流水线的差错恢复：<strong>回退N步</strong>和<strong>选择重传</strong></li>
+<li>回退N步(GBN)</li>
+<li>base:最先发出但是未被确认的分组的序号</li>
+<li>nextseqnum:下一个未被使用的分组的序号</li>
+<li>N最大长度:窗口最大长度</li>
+<li>一个分组的序号承载在分组首部的一个固定长度的字段重</li>
+<li>GBN发送方必须响应如下几种情况</li>
+<li>上层的调用:上层调用rdt_send(),GBN检查发送窗口是否已经满了;如果未满则更新变量,否则向上层反馈</li>
+<li>收到一个ACK:接收方已经正确接收到ACK为n以及之前的所有分组</li>
+<li>超时重传:一旦出现超时,GBN会重传所有已发送但是未被确认的分组<ul>
+<li>发送方只有一个定时器,每当收到一个ACK并且还有已发送未被确认的分组,重启定时器</li>
+</ul>
+</li>
+<li>GBN发送方必须维护窗口的上下边界以及nextnum在该窗口中的位置</li>
+<li>GBN的接收方:</li>
+<li>接收方只需要维护一个下一个按序接受的分组序号,expectnum</li>
+<li>接收方正确收到一个序号为n的分组<ul>
+<li>累计确认:接收方收到为n的正确按序分组意味着之前的分组也已经按序正确收到</li>
+<li>按序,接收方为分组n发送ACK,并将该分组中的数据交付到上层</li>
+<li>乱序,接收方丢弃该分组,并向发送方返回最近按序接受的分组ACK</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">选择重传</h3>
+<blockquote>
+<p>在GBN协议中单个分组的差错就会引起大量GBN协议分组的重传,许多分组没必要重传,因此出现了选择重传(SR)</p>
+</blockquote>
+<ul>
+<li>选择重传(SR)让发送方仅重传那些又可能出错的分组</li>
+<li>这种个别的,按需的重传要求接收方逐个确认正确接收的分组</li>
+<li>
+<p>SR接收方也引入了接收窗口,失序的分组将被缓存,直到所有的分组都被接受为止</p>
+</li>
+<li>
+<p>SR发送方:</p>
+</li>
+<li>从上层接收到数据</li>
+<li>超时,每个分组都有自己的逻辑定时器,可以使用单个硬件定时器模拟多个逻辑定时器</li>
+<li>收到ACK,如果该ACK分组在SR发送窗口内,则标记为已确认分组;如果该ACK对应的是send_base则整个窗口向前移动到具有最小未被确认分组处;如果窗口移动期间有序号落在窗口内的未发送分组,则发送这些分组.</li>
+<li>SR接收方:</li>
+<li>序号在rcv_base~rcv_base+N-1内的分组被正确接受<ul>
+<li>如果未被接受过,则该分组被缓存,并向发送方返回一个选择ACK</li>
+<li>如果是起始rcv_base序号,则按序向上层传送以该序号为起始的已经缓存的分组</li>
+</ul>
+</li>
+<li>序号在rcv_base - N ~ rcv_base - 1 的序号,必须产生一个ACK,即使接收方之前确认过</li>
+<li>其余情况,忽略</li>
+<li>对于SR协议而言,窗口长度必须小于或等于序号空间大小的一半</li>
+<li>在分组被重新排序的情况下,我们必须确保一个序号不被重新使用,除非发送方确信任何先前发送的序号为x的分组都不在网络中为止,通过假设一个分组在网络中的存活时间不会超过某一个最大量来实现.</li>
+</ul>
+<h2 id="tcp">有链接运输：TCP</h2>
+<ul>
+<li>tcp是面向连接的,三次握手</li>
+<li>TCP运行在端系统中,中间的网络元素不会维持TCP的链接状态,对于他们而言只是数据包</li>
+<li>TCP是全双工服务,Poin2Point</li>
+</ul>
+<p>客户端通过socket套接字传递数据</p>
+<ul>
+<li>客户端通过socket套接字来传递数据流，TCP将数据引导到发送缓存中</li>
+<li>TCP可以从发送缓存中取出并放入报文段的大小取决于<code>MSS</code></li>
+<li><code>MSS</code>通常由本地主机发送的最大链路层帧长度<code>MTU</code>来设置</li>
+<li><code>MSS</code>保证一个TCP报文段封装在<code>IP</code>数据报中,加上<code>TCP/IP</code>首部长度(通常40字节)</li>
+<li>MTU一般为1500字节,MSS一般为1460字节</li>
+</ul>
+<p>TCP链接的每一端都有各自的发送缓存和接收缓存
+TCP链接一般由一台主机的变量,缓存以及套接字和另外一台主机的相应元素组成</p>
+<h3 id="tcp_1">TCP报文段结构</h3>
+<ul>
+<li>TCP报文段由首部字段和数据字段组成,数据字段大小被MSS限制</li>
+<li>首部字段包括:</li>
+<li>源端口号和目的端口号:用于多路复用/多路分解</li>
+<li>序号和确认号:用于TCP双方实现可靠数据传输<ul>
+<li>序号是该报文段首字节的字节流编号.</li>
+<li>确认号表明了源主机希望目的主机发送的下一字节的序号</li>
+</ul>
+</li>
+<li>首部长度:因为TCP首部字段是变长的(通常选项为空的时候,大小为<strong>20字节</strong>),该字段指示了以32比特的字为单位的<strong>TCP首部的长度</strong></li>
+<li>保留未用:</li>
+<li>标志位:<ul>
+<li>ACK:用于确认</li>
+<li>RST,SYN,FIN:用于链接建立和拆除</li>
+<li>URG:用于指示报文段存在着"紧急数据",紧急数据由16比特的紧急数据指针指出</li>
+</ul>
+</li>
+<li>接受窗口:用于流量控制</li>
+<li>因特网校验和:检查校验和</li>
+<li>紧急数据指针:</li>
+<li>
+<p>选项:可选与变长,用于发送方和接收方协商最大报文字段长度</p>
+</li>
+<li>
+<p>一条TCP链接的双方均可随机选择序号</p>
+</li>
+<li>TCP被称为提供累计确认</li>
+</ul>
+<p>往返时间的估计与超时</p>
+<ul>
+<li>样本时间 SampleRTT</li>
+<li>维护一个均值 SampleRTT,EstimateRTT</li>
+<li>$EstimateRTT=(1-\alpha)<em>EstimateRTT + \alpha</em>SampleRTT$</li>
+<li>一般$\alpha$的值取0.125</li>
+<li>这种指数加权移动移动平均(EWMA)</li>
+<li>测量 EstimateRTT变化</li>
+<li>$DevRTT=(1-\beta)DevRTT+\beta*|SampleRTT-EstimateRTT|$</li>
+<li>$\beta$为0.25</li>
+<li>如果SampleRTT变化小DevRTT值也小</li>
+<li>超时间隔TimeoutInterval设置为EstimateRTT加上一点余量</li>
+<li>$TimeoutInterval=EstimateRTT+4*DevRTT$</li>
+<li>一般初始Time设置为1秒，如果出现<strong>超时</strong>，Time加倍，直到收到报文段才会使用上述公式再次计算Time</li>
+</ul>
+<h3 id="_6">可靠数据传输</h3>
+<p>TCP主要3个事件有关:从上层应用程序接收数据、定时器超时、收到ACK</p>
+<ul>
+<li>从上层应用程序接受数据：启动定时器，更新Nextseqnum</li>
+<li>定时器超时：TCP重传引起超时的报文段，TCP重启定时器</li>
+<li>收到ACK:TCP是累计确认，收到y代表y之前的所有字节序列都已经正确被接受，如果y大于sendbase，则代表该ACK在确认一个或多个先前未被确认的报文段；如果当前仍有未确认的报文段，TCP还要重启定时器</li>
+</ul>
+<p>超时间隔加倍</p>
+<ul>
+<li>TCP重传具有最小序号的还未被确认的报文段</li>
+<li>
+<p>每次TCP超时重传的时间间隔是先前的两倍，而不是通过EstimatedRTT个DevRTT推算的值</p>
+</li>
+<li>
+<p>当定时器在另外两个时间触发的时候（收到上层应用数据和收到ACK）TimeoutRTT被更新为推算出来的值</p>
+</li>
+</ul>
+<p>快速重传</p>
+<ul>
+<li>因为超时重传的时间间隔可能很长，会增加了端到端时延</li>
+<li>当TCP发送方连续收到三个冗余ACK的时候就会出发快速重传</li>
+<li>快速重传：在该报文段定时器过期之前，迅速重传之前丢失的报文段</li>
+</ul>
+<p>TCP差错恢复机制</p>
+<ul>
+<li>TCP的差错恢复机制为GBN和SR的混合体</li>
+<li>TCP接收方优选择地确认失序报文段，将正确接收但是失序的报文段缓存起来</li>
+</ul>
+<h3 id="_7">流量控制</h3>
+<ul>
+<li>经过TCP发送的数据会到达接收方的TCP缓存中等待应用程序调用，但是如果TCP发送的数据速度过大会导致接收方缓存溢出</li>
+<li>流量控制是一个速度匹配服务，即发送方和接收方应用程序的读取速率相匹配</li>
+<li>拥塞控制和流量控制都是对发送方的遏制，但是引起二者的原因不同</li>
+</ul>
+<p>流量控制的实现</p>
+<ul>
+<li>TCP让发送方维护一个接受窗口来进行<strong>流量控制</strong>，接收窗口用于给发送方指示接收方还有多少可用的缓存</li>
+<li>接收缓存大小：RcvBuffer</li>
+<li>LastByteRead：接收方用用程序从数据流中读取的最后一个字节的编号</li>
+<li>LastByteRcvd：接收方缓存的数据流最后一个字节的编号</li>
+<li>LastByteRcvd - LastByteRead &lt;= RcvBuffer</li>
+<li>接受窗口用rwnd表示</li>
+<li>rwnd = RcvBuffer - [LastByteRcvd - LastByteRead] </li>
+<li>rwnd是动态变化的</li>
+<li>TCP发送方</li>
+<li>LastByteSent：最后一个发送的字节的序号</li>
+<li>LastByteAcked：最后一个被确认的字节的序号</li>
+<li>LastByteSent - LastByteAcked &lt;= rwnd</li>
+<li>通过将未确认的值控制在<code>rwnd</code>之间就可以保证接收方缓存不会溢出</li>
+<li>TCP接收方仅当有数据或有确认要发时才会发送报文段给TCP发送方</li>
+<li>TCP接受缓存满了之后，发送方就不会发送数据，但是此时接收方已经释放了新的缓存，需要告知发送方</li>
+<li>发送方会继续发送只有一个字节数据的报文段，这些报文段会被接收方接受，开始清理缓存，并且确认报文中含有一个非0 rwnd的值</li>
+</ul>
+<h3 id="tcp_2">TCP链接管理</h3>
+<ul>
+<li>
+<p>三次握手</p>
+</li>
+<li>
+<p>TCP客户端发送不含应用数据的SYN报文段，标志位SYN被置为1</p>
+</li>
+<li>
+<p>服务器接收到该报文，并为这个TCP链接分配缓存和变量，向客户端发送报文，SYN被置为1，确认号为client_server + 1，序号为server_client,这个允许链接的报文段被称为SYNACK报文段</p>
+</li>
+<li>
+<p>客户端收到SYNACK之后，客户为该链接分配缓存和变量，同时向服务器进行了确认，该SYN比特被置为0，此时可以负载客户到服务器的数据</p>
+</li>
+<li>
+<p>关闭释放链接</p>
+</li>
+<li>客户端 <ul>
+<li>客户端发送报文段，FIN比特位置为1，变为FIN_WAIR_1状态</li>
+<li>客户端收到服务器ACK之后变为FIN_WAIR_2状态</li>
+<li>接收到服务器的FIN之后变为TIME_WAIT状态，等待30秒，进入CLOSED状态</li>
+</ul>
+</li>
+<li>
+<p>服务器端</p>
+<ul>
+<li>服务器接收到客户端的FIN后，向客户端发送ACK</li>
+<li>服务器向客户端发送FIN，接收到ACK之后关闭链接</li>
+</ul>
+</li>
+<li>
+<p>当端口号或源IP与套接字不匹配的时候,目的主机向源主机发送一个特殊重置报文RST</p>
+</li>
+<li>当收到UDP套接字不匹配,发送ICMP数据包</li>
+<li>nmap就是这种方式来扫描端口</li>
+<li>收到TCPSYNACK报文,则目标主机一个应用程序使用TCP在该端口运行</li>
+<li>收到TCP RST报文,目标主机该端口没有运行TCP程序,但是没有防火墙等阻挡</li>
+<li>什么也没收到,证明被防火墙等阻挡</li>
+</ul>
+<h3 id="_8">拥塞控制原理</h3>
+<h4 id="_9">拥塞原因和代价</h4>
+<ul>
+<li>分组的到达速率接近链路容量，分组经历巨大的排队时延</li>
+<li>发送方必须重发来补偿因为缓存溢出而丢弃的分组</li>
+<li>发送方因为遇到大时延所进行的不必要重传会引起路由器使用其有限链路带宽来转发不必要的分组</li>
+<li>竞争路由器R上的优先缓存空间,当载荷过大的时候会导致A-C端吞吐量趋近于0</li>
+<li>一个分组在一条路径被丢弃时,每个上游路由器用于转发该分组的传输容量都被浪费掉了</li>
+</ul>
+<h4 id="_10">拥塞控制方法</h4>
+<ul>
+<li>端到端拥塞控制,网络层没有为运输层提供显式支持</li>
+<li>网络辅助的拥塞控制,路由器向发送方提供关于网络中拥塞状态的显式反馈信息</li>
+<li>阻塞分组</li>
+<li>路由器标记或更新从发送方向接收方的分组中的某个字段,接收方接收后会向发送方通知该网络拥塞指示(该方法至少需要一个RTT)</li>
+</ul>
+<h3 id="tcp_3">TCP拥塞控制</h3>
+<h4 id="tcp_4">经典TCP拥塞控制</h4>
+<ul>
+<li>
+<p>Tcp所采用的方法是让每一个发送方都能感受到网络拥塞程度来限制其能向链接发送流量的速率</p>
+</li>
+<li>
+<p>怎么感知拥塞程度?</p>
+</li>
+<li>
+<p>如何限制?</p>
+</li>
+<li>
+<p>采用什么算法来改变速率?</p>
+</li>
+<li>
+<p>运行在TCP发送端拥塞控制机制跟踪一个额外变量,拥塞窗口<code>cwnd</code></p>
+</li>
+<li>
+<p>LastByteSent - LastByteRead &lt;= min{cwnd,rwnd}</p>
+</li>
+<li>
+<p>通过调节cwnd的值来调整发送方向链接发送数据的速率</p>
+</li>
+<li>
+<p>丢包事件发生代表着拥塞:</p>
+</li>
+<li>
+<p>超时</p>
+</li>
+<li>
+<p>收到三个冗余ACK</p>
+</li>
+<li>
+<p>TCP通过确认来增大拥塞窗口长度,TCP被称为<strong>自计时</strong></p>
+</li>
+<li>
+<p>TCP拥塞控制算法:慢启动,拥塞避免,快速恢复</p>
+</li>
+<li>
+<p><strong>慢启动</strong></p>
+</li>
+<li>cwnd以一个MSS开始启动,每次被确认的时候<strong>cwnd加倍</strong></li>
+<li>遇到<strong>超时</strong>,cwnd被设置为1个MSS,重启慢启动过程.慢启动阈值ssthresh被设置为cwnd/2<ul>
+<li>到达或超过阈值ssthresh的时候,TCP结束慢启动进入<strong>拥塞避免模式</strong></li>
+</ul>
+</li>
+<li>遇到<strong>3个冗余ACK</strong>,TCP执行快速重传,并进入<strong>快速恢复状态</strong><ul>
+<li>一般重传只有在定时器超时才会重传</li>
+<li>快速重传则是不需要等待定时器过期,直接重传丢失的报文段</li>
+</ul>
+</li>
+<li><strong>拥塞避免</strong></li>
+<li>每个RTT,cwnd增加一个MSS</li>
+<li>遇到<strong>超时</strong>,与慢启动一样,cwnd被设置为1MSS,ssthresh被设置为cwnd/2</li>
+<li>遇到<strong>3个冗余ACK</strong>,cwnd<strong>减半</strong>(已收到的3个冗余ACK,也需要加3个MSS),ssthresh设置为cwnd/2,进入<strong>快速恢复状态</strong></li>
+<li><strong>快速恢复</strong></li>
+<li>在快速恢复中,对于引起TCP进入快速恢复状态的缺失报文段,每当收到冗余ACK,cwnd就增加一个MSS.最终当对丢失报文的一个ACK到达时,TCP降低cwnd后进入拥塞避免状态.</li>
+<li>遇到<strong>超时</strong>,与慢启动和拥塞避免一样,执行相同操作,并进入<strong>慢启动状态</strong></li>
+</ul>
+<p>#### 网络辅助的拥塞控制</p>
+<ul>
+<li>明确拥塞通告(ECN)<ul>
+<li>ECN明确涉及TCP和IP,有两个比特用于ECN,这两个比特位于<strong>IP数据报</strong>的服务类型字段中</li>
+<li>当<strong>接收方</strong>收到的数据包中包含网络层设置的ECN信号时,在返回TCP ACK报文段的ECE比特置位,发送方收到TCP ACK之后会对ECE指示做出反应,并在下一个发送的报文段中对<strong>CWR(拥塞窗口缩减)</strong>比特进行置位</li>
+<li>除了TCP以外的运输层协议也可以利用网络层发送ECN信号</li>
+</ul>
+</li>
+</ul>
+<h2 id="_11">公平性</h2>
+<ul>
+<li>UDP流量会压制TCP的流量传送</li>
+<li>有的应用程序会同时开启多个并行TCP链接,也会占用大量带宽.</li>
+</ul>
+<h2 id="_12">运输层功能演化</h2>
+<ul>
+<li>待补充...</li>
+</ul>
+<h1 id="_13">网络层：数据平面</h1>
+<ul>
+<li>网络层中的每一台主机和路由器都有一个网络层的部分，网络层可以被分解为两个相互作用的部分：<strong>数据平面</strong>和<strong>控制平面</strong></li>
+<li>
+<p>数据平面主要是网络中每台路由器的功能，该数据平面功能决定到达路由器输入链路之一的数据包如何<strong>转发</strong>到输出链路<strong>之一</strong></p>
+</li>
+<li>
+<p>目前的转发主要包括<strong>基于数据报目的地址的转发</strong>以及<strong>通用转发（基于数据报首部不同几个域的值执行转发和其他功能）</strong></p>
+</li>
+</ul>
+<h2 id="_14">网络层概述</h2>
+<ul>
+<li>数据平面主要作用是从其输入链路向其输出链路转发数据报</li>
+<li>
+<p>控制平面主要作用是协调这些每本地路由器的转发操作，使数据报沿着源和目的主机之间的路由器路径最终进行端到端传送</p>
+</li>
+<li>
+<p>路由器不运行<strong>应用层</strong>和<strong>运输层</strong>协议</p>
+</li>
+</ul>
+<h2 id="_15">转发和路由</h2>
+<ul>
+<li>转发：当一个分组到达路由器的输入端口时，路由器需要选择合适的输出端口将其转发出去，转发是在<strong>数据平面唯一实现</strong>的功能</li>
+<li>路由选择：分组从发送方流向接收方，网络层必须决定这些分组所选择的路径或路由，计算这些路径的算法被称为<strong>路由选择算法</strong></li>
+<li>转发通常由<strong>硬件</strong>实现，是路由器本地操作</li>
+<li>路由选择通常由<strong>软件</strong>实现，是网络范围处理过程</li>
+<li>转发</li>
+<li>每台路由器都具有<strong>转发表</strong>，路由器检查到达分组首部的<strong>一个或多个</strong>字段来在其转发表中进行索引查找<strong>输出链路接口</strong></li>
+<li>路由选择算法决定转发表的值<ul>
+<li>传统方法：每台路由器都有一个与其他路由器进行路由选择通信的路由选择组件，通过路由选择协议交换包含路由选择信息的路由选择报文</li>
+<li>SDN方法：远程控制器进行计算、分发路由表，本地路由器只负责转发。路由器和远程控制器通过交换包含转发表和其他路由选择信息的报文</li>
+</ul>
+</li>
+<li>因特网的网络层只提供了<strong>尽力而为</strong>服务</li>
+<li>路由器和交换机都属于分组交换机</li>
+</ul>
+<h2 id="_16">路由器工作原理</h2>
+<ul>
+<li>路由器基本组件包含：</li>
+<li>输入端口（硬件实现）<ul>
+<li>与数据链路层进行交互</li>
+<li>执行查找功能：通过查询转发表决定路由器的输出端口</li>
+<li>到达的分组经过交换结构发送到输出端口，控制分组从输入端口转发到路由选择处理器</li>
+</ul>
+</li>
+<li>输出端口（硬件实现）<ul>
+<li>存储从<strong>交换结构</strong>接受的分组并执行必要的链路层和物理层功能在输出链路上传输这些分组</li>
+</ul>
+</li>
+<li>交换结构（硬件实现）<ul>
+<li>将输入端口连接到输出端口</li>
+</ul>
+</li>
+<li>路由选择处理器（CPU）<ul>
+<li>执行控制平面的功能</li>
+<li>传统路由器中：执行路由选择协议，维护路由选择表和相关链路状态信息，为路由器计算转发表</li>
+<li>SDN路由器中：负责与远程控制器通信，接受远程控制器计算的转发表项，并在路由器输入输出端口安装这些表项</li>
+</ul>
+</li>
+<li>输入端口的处理</li>
+<li>输入端口执行查找转发表功能来决定输出端口</li>
+<li>转发表是由路由选择处理器计算和更新得出的</li>
+<li>转发表是由选择处理器经过独立总线复制到线路卡</li>
+<li>转发决策能在每个输入端口本地做，而无需基于每个分组调用集中式路由选择处理器</li>
+<li>基于目的转发</li>
+<li>最长前缀匹配</li>
+<li>存在默认转发链路接口</li>
+<li>可能分组被阻塞排队在输入端口</li>
+<li>交换</li>
+<li>经内存交换<ul>
+<li>在CPU操作下，使用共享内存交换</li>
+</ul>
+</li>
+<li>经总线交换<ul>
+<li>通过共享总线交换，输入端口为分组加上交换机内部标签然后发送给所有的输出端口，输出端口会进行匹配</li>
+</ul>
+</li>
+<li>经互联网络交换<ul>
+<li>通过2N条总线来组成互联网络，链接N个输入端口和N个输出端口</li>
+</ul>
+</li>
+<li>输出端口</li>
+<li>取出存放在输出端口内存中的分组并将其发送到输出链路中</li>
+<li>排队</li>
+<li>输入排队<ul>
+<li>交换机速度没有达到让所有分组无时延的交换</li>
+</ul>
+</li>
+<li>输出排队<ul>
+<li>弃尾：丢弃刚到达的分组或者删除一个或多个已排队的分组</li>
+<li>在缓存填满前丢弃一个分组或者在首部加上标记来向发送方提供一个拥塞信号</li>
+</ul>
+</li>
+<li>吞吐量和最小的时延都很重要</li>
+<li>分组调度</li>
+<li>先进先出</li>
+<li>优先权排队</li>
+<li>循环排队：按照类别进行传输</li>
+<li>加权公平排队：根据每个类别等待的分组数量来计算权重</li>
+</ul>
+<h2 id="ipv4">IPv4数据报和寻址</h2>
+<h3 id="ipv4_1">IPv4</h3>
+<ul>
+<li>
+<p>IPv4数据报格式</p>
+</li>
+<li>
+<p>版本号：4bit，规定了数据报的IP协议版本</p>
+</li>
+<li>首部长度：4bit，IPv4数据报包含一些可变数量的选项，通过该字段来确定运输层报文段实际开始的地方，一般具有<strong>20字节</strong>的首部</li>
+<li>服务类型：8bit，区分开不同类型的数据报：实时数据报、非实时数据报等</li>
+<li>数据报长度：16bit，IP数据报总长度（首部+载荷），IP数据报理论最大长度为65535字节</li>
+<li>标识、标志、片偏移：这三个字段与IP分片有关（IPv6就取消了），一个大的IP数据报被分为几个小的IP数据报然后被发送到目的主机进行重新组装</li>
+<li>寿命：TTL，每经过一台路由器，TTL-1，TTL为0丢弃该数据包</li>
+<li>协议：指明了该IP数据报交给哪一个上层运输层协议<ul>
+<li>协议号将网络层和运输层绑定在一起</li>
+<li>端口号将运输层和应用层绑定到一起</li>
+</ul>
+</li>
+<li>首部校验和：16bit<ul>
+<li>用于帮助路由器检测收到的IP数据报中的比特错误</li>
+<li>根据首部中的字段值来进行计算的，<strong>每台路由器都会重新计算，因为TLL字段以及可能的选项字段会改变</strong></li>
+<li>重复检测是因为可能存在不同的<strong>协议搭配</strong></li>
+</ul>
+</li>
+<li>源和目的IP地址：都是32bit</li>
+<li>选项：选项字段允许IP首部被扩展</li>
+<li>
+<p>数据（有效载荷）：送往运输层的报文段（TCP/UDP,也可以是ICMP）</p>
+</li>
+<li>
+<p>IPv4编址</p>
+</li>
+<li><strong>每个接口</strong>都具有IP地址</li>
+<li>路由器具有多个接口</li>
+<li>每台主机和每个路由器接口都具有各自的IP地址</li>
+<li>每个IPv4地址长度为32bit（4字节）</li>
+<li>IP地址需要由其链接的子网来决定</li>
+<li>子网掩码<ul>
+<li>三个主机接口和一个路由器接口形成了一个子网</li>
+<li>无类别域间路由选择（CIDR编址），a.b.c.d/x</li>
+<li>x高比特构成了IP地址的网络部分</li>
+<li>路由聚合</li>
+<li>32-x比特被用于区分组织内部设备</li>
+<li>分类编制</li>
+<li>IP地址的网络部分被限制为8、16、24比特，分别代表A、B和C网络</li>
+<li>255.255.255.255为IP广播地址，0.0.0.0为自身的IP地址，用于在一些特殊场合</li>
+</ul>
+</li>
+</ul>
+<h2 id="dhcp">DHCP（动态主机配置协议）</h2>
+<ul>
+<li>DHCP允许主机自动获取一个IP地址（可以配置为相同IP地址或者临时IP地址）</li>
+<li>DHCP还得知其余信息，子网掩码，第一跳路由地址（网关），本地DNS服务器地址等</li>
+<li>客户-服务器协议：客户通常是新到达的主机，需要获得包括自身IP地址等信息</li>
+<li>理想情况下每个子网具有一台DHCP服务器或者DHCP中继代理，该代理知道该网络DHCP服务器的地址</li>
+<li>DCHP客户和服务器交互<ul>
+<li>DHCP服务器发现：客户机发送<strong>DHCP发现报文</strong>，UDP，端口号67，广播目的地址255.255.255.255，以及“源主机IP”0.0.0.0</li>
+<li>DHCP服务器提供：服务器发送<strong>DHCP提供报文</strong>，广播255.255.255.255，报文中包含推荐IP地址、网络掩码、IP地址租用期等</li>
+<li>DHCP请求：客户从一个或多个服务器提供中选择一个，并向其发送<strong>DHCP请求报文</strong>响应，回显配置的参数</li>
+<li>DHCP ACK：服务器用<strong>DHCP ACK 报文</strong>对DHCP请求报文进行响应，证实参数</li>
+</ul>
+</li>
+<li>DHCP还提供了机制来允许客户更新对一个IP地址的租用</li>
+</ul>
+<h2 id="nat">NAT（网络地址转换协议）</h2>
+<ul>
+<li>NAT（网络地址转换）</li>
+<li>NAT对外界相当于具有单一IP地址的单一设备</li>
+<li>NAT对外界隐藏了子网的细节</li>
+<li>路由器从ISP的DHCP服务器得到NAT地址</li>
+<li>NAT路由器具有一张NAT转换表，表项中包含了<strong>端口号和其IP地址</strong></li>
+<li>路由器重写数据报的ip地址和端口<ul>
+<li>向外界发送</li>
+<li>源IP替换为NAT IP地址</li>
+<li>源端口替换为NAT中空余端口</li>
+<li>从外界接受</li>
+<li>目的IP根据NAT转换表通过端口来查询</li>
+<li>替换目的IP</li>
+</ul>
+</li>
+<li>NAT属于中间盒</li>
+<li>中间盒不执行传统的数据报转发，而是执行诸如NAT、流量负载均衡、流量防火墙等功能</li>
+</ul>
+<h2 id="ipv6">IPv6数据报和寻址</h2>
+<ul>
+<li>IPv6数据报格式</li>
+<li>扩大的地址容量：由32比特升为128比特，并引入了除单播和多播之外的任播</li>
+<li>简化高效的40字节首部：定长40字节首部</li>
+<li>流标签：给特殊流的分组加上标签（音频视频等）</li>
+<li>IPv6数据报<ul>
+<li>版本：IP版本号</li>
+<li>流量类型：服务类型，区分不同类型的IP数据报</li>
+<li>流标签：20bit，对一条流中的某些数据报给出优先级</li>
+<li>有效载荷字段：40字节首部字段后的数据载荷字节数量</li>
+<li>下一个首部：标识数据报交付给哪个协议（TCP、UDP）</li>
+<li>跳限制：约等于TTL</li>
+<li>源地址和目的地址：128bit</li>
+<li>数据：数据载荷部分</li>
+</ul>
+</li>
+<li>从IPv4到IPv6的迁移</li>
+<li>IPv6兼容IPv4</li>
+<li>IPv4网络设备不支持IPv4<ul>
+<li>解决办法：建隧道</li>
+<li>两个IPv6节点通过IPv4网络设备传输的时候，将IPv6数据报放到一个IPv4数据报的载荷字段</li>
+<li>IPv6接收端通过观察该IPv4的协议号字段41来判断有效载荷和IPv6数据报</li>
+</ul>
+</li>
+</ul>
+<h2 id="sdn">泛化转发和SDN</h2>
+<ul>
+<li>转发可以概括为<strong>匹配和操作</strong></li>
+<li>在泛化转发中，操作可以包括许多不同种操作</li>
+<li>每台分组交换机中都有匹配加操作表，该表由远程控制器计算、安装和更新</li>
+<li>O<strong>penFlow</strong>是泛化转发中一种协议</li>
+<li><strong>匹配加操作转发表</strong>在OpenFlow中称为流表，每个表项包括<ul>
+<li>首部字段值的集合：入分组将与之匹配，基于硬件的匹配执行最为迅速，匹配不上的流表将会被丢弃或发送到远程控制器做更多的处理</li>
+<li>计数器集合：当分组与流表项匹配时更新计数器</li>
+<li>操作集合：当分组匹配流表项时所采取的操作集合</li>
+</ul>
+</li>
+<li>匹配</li>
+<li>OpenFlow 1.0流表具有11个分组首部字段和入端口ID（最近已经增加到了41个）</li>
+<li>OpenFlow的匹配抽象允许对来自三个层次的协议首部所选择的字段进行匹配</li>
+<li>入端口是指分组交换机上接受分组的输入端口</li>
+<li>流表项也具有通配符</li>
+<li>操作</li>
+<li>每个流表项都具有零个或多个操作列表<ul>
+<li>转发</li>
+<li>丢弃</li>
+<li>修改字段</li>
+<li>...</li>
+</ul>
+</li>
+<li>SDN控制器计算和分发流表，协议用于在分组交换机和它的控制器之间进行通信</li>
+<li>中间盒</li>
+<li>"在源主机和目的主机之间的数据路径上，执行除了IP路由器的正常标准功能之外的其他功能的任何中间的盒子"</li>
+<li>大致包括以下三种<ul>
+<li>NAT转换</li>
+<li>安全服务：防火墙基于首部字段值或重定向分组来阻塞流量，从而进行附加处理</li>
+<li>性能增强</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>​ 随着中间件的增多，单独的专用硬件、单独的专用软件堆栈等都意味着巨大的成本和投资费用。因此，研究人员正在探索使用商用硬件（网络、计算和服务），并试图在通用软件堆栈上构建专门的软件来实现这些服务，而这就是SDN采用的方法，网络功能虚拟化（NFV）；另一种被探索的方法是把中间盒功能外包给云。</p>
+</blockquote>
+<ul>
+<li>IP沙漏</li>
+<li>端到端原则</li>
+</ul>
+<h1 id="_17">网络层：控制平面</h1>
+<p>控制平面作为一种网络范围的逻辑，不仅控制沿着从源主机到目的主机的端到端路径间的路由器如何转发数据报，而且控制网络层组件和服务如何配置和管理</p>
+<h3 id="_18">概述</h3>
+<ul>
+<li>转发表（基于目的地转发的场景）和流表（泛化转发的场景）</li>
+<li>计算、维护和安装流表以及转发表</li>
+<li>每路由器控制<ul>
+<li>每台路由器具有一个路由选择组件，用于和其他路由器路由选择组件通信</li>
+</ul>
+</li>
+<li>逻辑集中式控制<ul>
+<li>逻辑集中式控制器计算并分发转发表以供每台路由器使用</li>
+<li>该控制器与每台路由器中的<strong>控制代理（CA）</strong>进行交互，CA一般只具有<strong>与控制器通信并按照控制器命令行事</strong>这一种功能</li>
+<li>与每路由器控制中的CA不同，这些CA之间不能直接相互交互，也不能主动参与计算转发表</li>
+</ul>
+</li>
+</ul>
+<h3 id="_19">路由选择算法介绍以及划分</h3>
+<ul>
+<li>路由选择算法目的是从发送方到接收方的过程中确定一条通过路由器网络的好路径（最低开销的路径）</li>
+<li>根据集中式和非集中式来划分</li>
+<li>集中式路由选择算法<ul>
+<li>用完整的、全局的网络知识计算出从源到目的地之间的最低开销路径</li>
+<li>集中式算法具有关于连通性和链路开销方面的完整信息</li>
+<li>具有全局状态信息的算法常被称作<strong>链路状态（LS）算法</strong>，该算法必须知道网络中每条链路的开销</li>
+</ul>
+</li>
+<li>分散式路由选择算法<ul>
+<li>路由器以迭代、分布式的方式计算最低开销路径，没有节点拥有关于所有网络链路开销的完整信息</li>
+<li>每个节点仅有与其直接相连链路的开销知识，然后通过迭代计算过程以及相邻节点的信息交换来确定最低开销路径</li>
+<li><strong>距离向量（DV）算法</strong>，分散式路由选择算法，每个节点维护到网络中所有其他节点的开销(距离)的向量</li>
+</ul>
+</li>
+<li>根据静态和动态来划份</li>
+<li>静态路由选择算法，路由随时间变化非常缓慢，通常是人工进行调整</li>
+<li>
+<p>动态路由选择算法，随着<strong>网络流量负载或拓扑发生变化</strong>而改变路由选择路径</p>
+<ul>
+<li>易受到诸如路由选择循环、路由振荡之类问题的影响</li>
+</ul>
+</li>
+<li>
+<p>根据负载敏感和负责迟钝来划分</p>
+</li>
+<li>负载敏感算法，链路开销会动态地变化以反映出底层链路的当前拥塞水平</li>
+<li>负载迟钝算法，某条链路的开销不明确反应当前或最近的拥塞水平（主流）</li>
+</ul>
+<h3 id="ls">链路状态路由选择算法（LS）</h3>
+<ul>
+<li>通过<strong>链路状态广播算法</strong>，向每个节点向网路中<strong>所有其他节点广播链路状态分组</strong>，每个分组包含它所连接的链路的标识和开销</li>
+<li>每个节点都具有网络的统一、完整视图，然后每个节点都能够运行LS算法并计算出相同的最低开销路径集合</li>
+<li>链路状态路由选择算法（LS）：Dijkstra算法</li>
+<li>Djkstra算法计算出某节点到所有其他节点的最低开销路径</li>
+<li>当同一链路两个方向负载不同时，会出现振荡情况</li>
+<li>该情况不仅出现在LS中，它出现在任何使用拥塞或基于时延的链路测度算法中</li>
+<li>让所有路由器并非同时运行LS算法来解决这种问题</li>
+<li>为了避免自同步，将通告时间随机化</li>
+</ul>
+<h3 id="dv">距离向量算法DV</h3>
+<ul>
+<li>距离向量算法是一种迭代的、异步的和分布式算法</li>
+<li>分布式：每个节点都要从相邻节点获取信息、计算然后向邻居分发</li>
+<li>迭代：此算法一直持续到没有信息交换为止</li>
+<li>异步：不要求所有节点相互之间步伐一致</li>
+<li>Bellman-Ford算法</li>
+<li>节点唯一具有的信息是<strong>它到直接相连邻居的链路开销</strong>和<strong>它从这些邻居接收到的信息</strong>，每个节点具有<strong>初始路由选择表</strong></li>
+<li>从邻居接受更新距离向量、重新计算路由选择表项和通知邻居到目的地的最低开销路径的开销，循环往复直到没有更新，该算法进入静止状态</li>
+<li>为了避免路由选择环路</li>
+<li>如果<strong>z通过y路由到达x</strong>，则z将通告y，z到x的距离是无穷大的即，Dz(x)为无穷</li>
+<li>只要z经y路由选择到x，z就持续这样做</li>
+</ul>
+<h3 id="lsdv">LS和DV路由选择算法比较</h3>
+<ul>
+<li>报文复杂度：LS每次链路状态发生改变就要向所有节点发送新的链路开销，DV算法仅当新的链路开销导致与该链路相连的最低开销路径发生变化时才传播新的开销</li>
+<li>收敛速度：DV慢，且在收敛时会遇到路由选择环路以及无穷计数问题</li>
+<li>健壮性：</li>
+<li>LS，路由计算在某种程度上是分离的，提供了一定的健壮性</li>
+<li>DV，一个不正确值会扩散到整个网络</li>
+</ul>
+<h3 id="ospf">因特网自治系统内部路由选择：OSPF</h3>
+<ul>
+<li>随着路由器数目变得巨大，成本和规模将会高的不可实现</li>
+<li>因特网时ISP的网络，每个ISP都有自己的路由器网络</li>
+<li>引入<strong>自治系统（AS）</strong></li>
+<li>每个AS由一组在<strong>相同管理控制</strong>下的路由器组成，通常在一个ISP和互联他们的链路构成一个AS</li>
+<li>一个ISP可以拆分为多个AS</li>
+<li>每个AS都有唯一的ASN号标识</li>
+<li>
+<p>一个自治系统AS内部的路由选择算法叫做自治系统内部路由选择协议</p>
+</li>
+<li>
+<p><strong>开放最短路优先（OSPF）</strong></p>
+</li>
+<li>OSPF是一种链路状态协议，洪泛链路状态信息和Dijkstra最低开销路径算法，使用OSPF，一台路由器构建了一幅关于整个自治系统的完整拓扑图</li>
+<li>OSPF提供了一种机制来让网络管理员为给定的链路权值集合确定最低开销的路由选择</li>
+<li>管理员设置不同的权重来实现不同的功能，最少跳等</li>
+<li>OSPF路由器向AS内<strong>所有路由器</strong>广播路由选择信息，即使状态未发生改变，它也<strong>周期性</strong>的广播链路状态（增加了健壮性）</li>
+<li>OSPF通告包含在IP报文中，对OSPF其上层协议的值为89，因此OSPF必须自己实现诸如可靠报文传输、链路状态广播等功能</li>
+<li>OSPF的优点：<ul>
+<li>安全：能够鉴别OSPF路由器之间的交换</li>
+<li>多条相同开销的路径：存在多条相等开销路径时，无需选择单一路径承载所有流量</li>
+<li>单播和多播路由选择的综合支持</li>
+<li>支持在单个AS中的层次结构：一个OSPF自治系统能够层次化配置多个区域</li>
+<li>每个区域，一台或多台区域边界路由器负责为该区域以外的分组提供路由选择</li>
+<li>每个AS中，只有一个OSPF区域被配置为<strong>主干区域</strong>，主干区域为该AS中<strong>其余区域</strong>之间的流量提供路由选择</li>
+<li>该主干包含所有的区域边界路由器和部分非边界路由器</li>
+<li>AS中的路由选择要求，分组先到达区域边界路由器，然后通过主干区域到达目的区域的区域边界路由器，进而到最终目的地</li>
+</ul>
+</li>
+</ul>
+<h3 id="ispbgp">ISP之间的路由选择：BGP</h3>
+<ul>
+<li>
+<p>当分组跨越多个AS进行路由时，需要一个自治系统间路由选择协议</p>
+</li>
+<li>
+<p>在因特网中所有的AS运行相同的AS间路由选择协议，称为边界网关协议</p>
+</li>
+<li>BGP将因特网中数以千计的ISP粘合起来（因特网中协议唯一可能竞争者是IP协议）</li>
+<li>BGP是一种分布式和异步的协议</li>
+</ul>
+<h4 id="bgp">BGP作用</h4>
+<ul>
+<li>每个路由器具有一台转发表，对于位于相同AS的目的地而言，转发表表项由AS内部路由协议决定，对于AS外部的目的地由AS间协议决定</li>
+<li>BGP中分组路由到一个CIDR化的前缀，其中每个前缀代表一个子网或一个子网的集合</li>
+<li>（x,i）形式</li>
+<li>
+<p>x代表前缀（138.16.68/22），i代表路由器的接口之一的接口号</p>
+</li>
+<li>
+<p>BGP需要完成</p>
+</li>
+<li>从邻居AS获得前缀的可达性信息，BGP允许每个子网向因特网其余所有部分通告它的存在，BGP确保因特网中过的所有AS知道该子网</li>
+<li>
+<p>确定到该前缀的最好的路由，一台路由器可能直到多条通往同一前缀的不同路由，路由器本地运行一个BGP路由选择过程（使用从相邻路由器获得的的前缀可达信息），该最好的路由基于策略以及可达性信息来确定</p>
+</li>
+<li>
+<p>通告BGP路由信息</p>
+</li>
+<li>每个AS内部每台路由器要么是一台<strong>网关路由器</strong>，要么是一台<strong>内部路由器</strong><ul>
+<li>网关路由器位于AS边缘，它链接到其他AS的一台或多台路由器</li>
+<li>内部路由器仅连接在他自己AS中的主机和路由器</li>
+</ul>
+</li>
+<li>在BGP中每台路由器使用179端口的半永久TCP链接交换路由选择信息</li>
+<li>每条直接连接以及所有通过该链接发送的BGP报文称为<strong>BGP链接</strong></li>
+<li>跨越两个AS的BGP链接称为外部BGP链接（eBGP）</li>
+<li>相同AS内部的BGP链接称为内部BGP链接（iBGP），iBGP不总是与物理链路相对应</li>
+<li>确定最好的路由</li>
+<li>路由器通过BGP链接通告前缀时，前缀包括一些BGP属性，前缀及其属性称为<strong>路由</strong></li>
+<li>两个重要的属性是<code>AS-PATH</code>和<code>NEXT-HOP</code><ul>
+<li>AS-PATH包含通告已经通过的AS的列表</li>
+<li>BGP路由器还通过该属性检测和防止通告环路（在通告中发现了它自己，拒绝该通告）</li>
+<li>NEXT-HOP是AS-PATH起始的路由器接口的IP地址</li>
+</ul>
+</li>
+<li>热土豆路由选择<ul>
+<li>从所有可能的路由中选择到<strong>开始该路由的NEXT-HOP路由器具有最小开销</strong>的路由</li>
+<li>相同AS内部的两台路由器到达一个目的地可能具有不同AS路径</li>
+<li>转发表增加AS向外前缀时，AS间路由选择协议和AS内部路由选择协议都要用到</li>
+</ul>
+</li>
+<li>路由器选择算法<ul>
+<li>实际的BGP路由选择算法更为复杂</li>
+<li>进入BGP路由选择算法的输入是到某前缀的所有路由的集合，该前缀是已被路由器学习和接受的，仅有一条时选择该路由，否则顺序调用以下规则<ul>
+<li>路由被指派一个<strong>本地偏好值</strong>作为其属性之一，它取决于该AS的网络管理员，最高本地偏好值路由被选择</li>
+<li>最短AS-PATH路由，如果该规则是唯一规则，BGP将使用<strong>距离向量算法</strong>决定路径，其中距离测度使用的是AS跳的跳数，而不是路由器跳数</li>
+<li>使用热土豆路由选择，最靠近NEXT-HOP路由器的路由</li>
+<li>使用BGP标识符选择路由</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP任播</li>
+<li>BGP还常被用作实现IP任播服务，DNS常使用该服务<ul>
+<li>CDN为他的多台服务器指派相同的IP地址，并使用BGP来通告这些服务器的IP地址，而处于不同的客户访问该IP会被引导至不同的不同的服务器（最近）</li>
+<li>DNS中，根服务器具有13个IP地址，但是每一个IP地址具有多台服务器，这些服务器分布在各地，用户访问这些根服务器时将通过IP任播路由到最近的根服务器</li>
+</ul>
+</li>
+</ul>
+<h3 id="sdn_1">SDN控制平面</h3>
+<ul>
+<li>控制分组在网络的SDN使能设备中转发网络范围逻辑</li>
+<li>SDN四个关键特征</li>
+<li>基于流的转发：能够基于运输层、网络层或链路层中任意数量的首部字段值进行；SDN控制平面的工作是计算、管理和安装所有网络交换机中的<strong>流表项</strong></li>
+<li>数据平面和控制平面分离<ul>
+<li>数据平面由网络交换机组成，执行”匹配+操作“的规则</li>
+<li>控制平面由服务器以及决定和管理交换机流表的软件组成</li>
+</ul>
+</li>
+<li>网络控制功能：位于数据平面交换机外部，控制平面本身有两个组成<ul>
+<li>一个SDN控制器（网络操作系统）</li>
+<li>控制器维护准确的网络状态信息，为网络控制应用程序提供这些信息</li>
+<li>提供方法来让应用程序能够监视、编程和控制下面的网络设备</li>
+<li>控制器是逻辑上集中，通常由几台服务器实现</li>
+<li>若干网络控制应用程序：</li>
+</ul>
+</li>
+<li>可编程的网络：<ul>
+<li>运行在控制平面上的网路控制应用程序，使用了SDN控制器提供的API来定义和控制网络设备的数据平面</li>
+</ul>
+</li>
+<li>SDN促进了网络的分类，让计算硬件、系统软件和应用程序的分类，为计算机网络领域的创新提供了丰富、开放的生态系统</li>
+</ul>
+<h4 id="sdn_2">SDN控制器</h4>
+<ul>
+<li>通信层：SDN控制器和受控网络设备之间的通信，需要一个协议来传送控制器与这些设备之间的信息（OpenFlow）</li>
+<li>网络状态管理层：由SDN控制平面所作出的最终控制决定，具有各类最新状态信息</li>
+<li>对于网络控制应用程序的接口：控制器通过他的”北向“接口和应用程序交互，该API允许应用程序在状态管理层之间读/写网络状态和流表，当状态改变事件出现时，应用程序能够注册进行通告</li>
+</ul>
+<h4 id="openflow">OpenFlow协议</h4>
+<ul>
+<li>OpenFlow协议运行在SDN控制器和SDN控制的交换机或其他实现OpenFlow API的设备之间</li>
+<li>运行在TCP之上，使用6653默认端口</li>
+<li>控制器流向受控交换机重要报文：</li>
+<li>配置：该报文允许控制器查询并设置交换机的配置参数</li>
+<li>修改状态：该报文由控制器使用，以增加/删除或修改交换机流表中的表项，并设置交换机端口特性</li>
+<li>读状态：从交换机的流表和端口收集统计数据和计算器的值</li>
+<li>发送分组：在受控交换机从特定的端口发送一个特定的报文</li>
+<li>受控交换机流向控制器重要报文:</li>
+<li>流删除：通知控制器已删除一个流表项</li>
+<li>端口状态：通知端口状态变化</li>
+<li>分组入:一个分组不与所有流表项匹配，这个分组被发给控制器进行额外处理</li>
+</ul>
+<h4 id="icmp">ICMP：因特网控制报文协议</h4>
+<ul>
+<li>ICMP被主机和路由器用来彼此沟通网络层的信息</li>
+<li>ICMP的最典型用途是差错报告</li>
+<li>ICMP作为有效载荷承载在IP报文段中</li>
+<li>指明上层协议为ICMP的IP数据报，分解出该数据报内容给ICMP</li>
+<li>ICMP报文由一个类型字段和一个编码字段，并且包含引起该ICMP报文首次生成的IP数据报的首部和前8个字节（以便发送方能确定引起该差错的数据报）</li>
+<li>ICMPv6还增加了新兴IPv6功能所需的新类型和编码</li>
+<li>分组太大</li>
+<li>未被认可的IPv6选项</li>
+<li>。。。</li>
+</ul>
+<h1 id="_20">数据链路层</h1>
+<h1 id="_21">期末速成</h1>
+<p>TCP发送方维持拥塞窗口</p>
+<p>TCP接收方维持接收窗口</p>
+<h2 id="_22">物理层</h2>
+<p>奈式定律</p>
+<p>香浓定律</p>
+<p>采样频率为实际频率的2倍以上</p>
+<p>码元 = log2比特数</p>
+<p>信噪比（db） = 10 log10 S/N</p>
+<p><strong>波特率</strong>是指单位时间内传送二进制数据的位数，单位用<strong>bps(位/秒)*<em>表示，记作*</em>波特</strong></p>
+<p>4相位代表两个比特位，2400bps = 1200波特</p>
+<h2 id="_23">数据链路层</h2>
+<p>最长数据帧为1500B</p>
+<p>最小数据帧长度 = 2 * 传播时延 * 数据传输速率</p>
+<p>以太网中 Hub 传输速率为100Mb/s</p>
+<p>以太网最小帧长度 64B</p>
+<p>CRC差错检验</p>
+<p>交换机表    </p>
+<h2 id="_24">网络层</h2>
+<p>RIP协议</p>
+<ul>
+<li>将传送来的RIP报文中的下一跳替换为发送来的路由器编号，距离加+1</li>
+<li>如果当前路由器没有该网络直接加1</li>
+<li>如果有该网络，并且下一跳地址也是发送来的路由器，则直接替换</li>
+<li>如果有该网络，但是不是该路由，选择较短的路径</li>
+<li>3分钟未收到，置为不可达（16）</li>
+</ul>
+<h2 id="_25">运输层</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="_26">应用层</h2>
+<p>@ 考试结束，完结</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

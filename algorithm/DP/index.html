@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>动态规划 - 赵家振 | Website</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/rainbow.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">赵家振 | Website</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/" class="dropdown-item">入门基本算法</a>
+</li>
+                                    
+<li>
+    <a href="../graph/" class="dropdown-item">图论</a>
+</li>
+                                    
+<li>
+    <a href="../math/" class="dropdown-item">数论</a>
+</li>
+                                    
+<li>
+    <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="dropdown-item">数据结构</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">动态规划</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../CN-Top2down/" class="nav-link">CN-Top-Down</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">南大PA指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../nju-pa/Pa1_Summary/" class="dropdown-item">pa1</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">xv6指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../xv6/" class="dropdown-item">xv6</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tools</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tools/useGuide/" class="dropdown-item">makedocs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../CN-Top2down/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp" class="nav-link">线性DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp_1" class="nav-link">区间DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp_2" class="nav-link">树形DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp_3" class="nav-link">计数类DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp_4" class="nav-link">数位统计DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dp_5" class="nav-link">状态压缩DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">记忆化搜索</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="dp">线性DP</h2>
+<h3 id="_1">背包问题</h3>
+<h4 id="01">01背包</h4>
+<p><strong>状态计算时 ，每个状态都有选或不选两种情况</strong></p>
+<p><strong>f[i][j] = max(f[i][j],f[i -1][j - v[i]] + w[i]);</strong></p>
+<blockquote>
+<p><strong>有 NN 件物品和一个容量是 VV 的背包。每件物品只能使用一次。</strong></p>
+<p><strong>第 ii 件物品的体积是 vivi，价值是 wiwi。</strong></p>
+<p><strong>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</strong>
+<strong>输出最大价值。</strong></p>
+</blockquote>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+ #include &lt;algorithm&gt;
+ using namespace std;
+ const int N = 1010;
+ int n,m;
+ int f[N][N];
+ int v[N],w[N];
+ int main(void)
+ {
+     cin &gt;&gt; n &gt;&gt; m;
+     for(int i = 0;i&lt;n;i++) cin &gt;&gt; v[i] &gt;&gt; w[i];// 输入数据
+     for(int i = 1;i&lt;=n;i++)
+         for(int j = 0;j&lt;=m;j++)
+         {
+             f[i][j] = f[i-1][j];       
+             if( j &gt;= v[i]) f[i][j] = max(f[i][j],f[i-1][j - v[i]] + w[i]);
+         }
+     cout &lt;&lt; f[n][m] &lt;&lt; endl;
+     return 0;
+ }
+</code></pre>
+<h4 id="_2">完全背包</h4>
+<p><strong>最朴素做法需要枚举k的次数（三维）</strong></p>
+<p><strong>优化后变成二维</strong></p>
+<blockquote>
+<p><strong>有 NN 种物品和一个容量是 VV 的背包，每种物品都有无限件可用。</strong></p>
+<p><strong>第 ii 种物品的体积是 vivi，价值是 wiwi。</strong></p>
+<p><strong>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</strong>
+<strong>输出最大价值。</strong></p>
+</blockquote>
+<p><img alt="image-20220402143114588" src="C:\Users\赵英俊\AppData\Roaming\Typora\typora-user-images\image-20220402143114588.png" /></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 1010;
+int n,m;
+int f[N][N];
+int v[N],w[N];
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 1;i&lt;=n;i++) cin &gt;&gt; v[i] &gt;&gt; w[i];
+    for(int i = 1;i&lt;=n;i++)
+        for(int j = 1;j&lt;=m;j++)
+        {
+            f[i][j] = f[i-1][j];
+            if(j &gt;= v[i])
+            f[i][j] = max(f[i][j],f[i][j -v[i]] + w[i]);
+        }
+    cout &lt;&lt; f[n][m] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h4 id="_3">多重背包问题</h4>
+<blockquote>
+<p><strong>有 NN 种物品和一个容量是 VV 的背包。</strong></p>
+<p><strong>第 ii 种物品最多有 sisi 件，每件体积是 vivi，价值是 wiwi。</strong></p>
+<p><strong>求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</strong>
+<strong>输出最大价值</strong></p>
+</blockquote>
+<p>直接枚举每次取得数量即可</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int N = 1010;
+int n,m;
+int w[N],s[N],v[N];
+int f[N][N];
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 1;i &lt;= n;i++) cin &gt;&gt; v[i] &gt;&gt; w[i] &gt;&gt; s[i];
+    for(int i = 1;i &lt;= n;i++)
+        for(int j = 0;j &lt;=m;j++)
+            for(int k= 0;k &lt;= s[i] &amp;&amp; j &gt;= v[i] * k;k++)
+                f[i][j] = max(f[i][j],f[i-1][j-v[i] * k] + w[i] * k);
+    cout &lt;&lt; f[n][m] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h4 id="_4">多重背包复杂版</h4>
+<blockquote>
+<p>0&lt;N≤10000&lt;N≤1000
+0&lt;V≤20000&lt;V≤2000
+0&lt;vi,wi,si≤2000</p>
+</blockquote>
+<p>利用二进制优化</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 25000,M = 2010;
+int n,m;
+int v[N],w[N];
+int f[M];
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    int cnt = 0;
+    for(int i = 1;i&lt;=n;i++)
+    {
+        int k = 1;
+        int a,b,s;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; s;
+        while(k&lt;=s)
+        {
+            cnt++;
+            v[cnt] = a*k;
+            w[cnt] = b*k;
+            s = s - k;
+            k = k * 2;
+        }
+        /*
+            这里相当于是把 一个整数 s 划分成了二进制的数，然后利用二进制数的组合 可以把s个数分
+            成 logs 个数 然后利用这 logs 个数 可以组合成 0~s 之间的任意数 在这个题意中就可以把
+            取 0~s 个的所有情况包括了 这样就可以节省了许多时间
+            经过这个过程后 就会产生 相当于 01 背包的问题一样 许多只能取一次的数据
+            所以此时就可以利用 01 背包优化对此时的所有情况进行取 最大值  //
+            总而言之 本题 的主要思想就是 利用二进制优化 把 s 个情况分成 logs 个 在利用 01 背包
+            进行最后的结果的总运算
+            也可以理解为 cnt 这个数组已经报含了 在数组中取任意个数字的情况
+        */
+        if( s &gt; 0)
+        {
+            cnt ++;
+            v[cnt] = a*s;
+            w[cnt] = b*s;
+        }
+    }
+    n = cnt;
+    for(int i = 1;i&lt;=n;i++)
+        for(int j = m;j&gt;=v[i];j--)
+            f[j] = max(f[j],f[j-v[i]] + w[i]);
+    cout &lt;&lt; f[m] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h4 id="_5">分组背包问题</h4>
+<blockquote>
+<p>有 N 组物品和一个容量是 V 的背包。</p>
+<p>每组物品有若干个，同一组内的物品最多只能选一个。
+每件物品的体积是 vij，价值是 wij，其中 i 是组号，j 是组内编号。</p>
+<p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
+<p>输出最大价值</p>
+</blockquote>
+<p><img alt="image-20220402145141280" src="C:\Users\赵英俊\AppData\Roaming\Typora\typora-user-images\image-20220402145141280.png" /></p>
+<p><strong>分组背包问题，枚举每一组的第几个物品被选</strong></p>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=110;
+int f[N][N];  //只从前i组物品中选，当前体积小于等于j的最大值
+int v[N][N],w[N][N],s[N];   //v为体积，w为价值，s代表第i组物品的个数
+int n,m,k;
+
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;s[i];
+        for(int j=0;j&lt;s[i];j++){
+            cin&gt;&gt;v[i][j]&gt;&gt;w[i][j];  //读入
+        }
+    }
+
+    for(int i=1;i&lt;=n;i++){
+        for(int j=0;j&lt;=m;j++){
+            f[i][j]=f[i-1][j];  //不选
+            for(int k=0;k&lt;s[i];k++){
+                if(j&gt;=v[i][k])     f[i][j]=max(f[i][j],f[i-1][j-v[i][k]]+w[i][k]);  
+            }
+        }
+    }
+    cout&lt;&lt;f[n][m]&lt;&lt;endl;
+}
+</code></pre>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 110;
+int w[N][N],v[N][N],s[N];
+int f[N][N];
+int n,m;
+int main(void)
+{
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 1;  i &lt;= n ; i ++)
+    {
+        cin &gt;&gt; s[i];
+        for(int j = 1 ; j &lt;= s[i];  j++) cin &gt;&gt; v[i][j] &gt;&gt; w[i][j];
+    }
+    for(int i = 1; i &lt;= n ; i++)
+        for(int j = 0; j &lt;= m ; j ++)
+        {
+            f[i][j] = f[i - 1][j]; // 不选的情况
+            for(int k = 1 ; k &lt;= s[i] ; k ++) // 枚举选的情况
+              {
+                  if( j &gt;= v[i][k])
+                      f[i][j] = max(f[i][j] , f[i-1][j - v[i][k]] + w[i][k]);
+              }
+        }
+    cout &lt;&lt; f[n][m] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h2 id="dp_1">区间DP</h2>
+<h2 id="dp_2">树形DP</h2>
+<h2 id="dp_3">计数类DP</h2>
+<h2 id="dp_4">数位统计DP</h2>
+<h2 id="dp_5">状态压缩DP</h2>
+<h2 id="_6">记忆化搜索</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>pa1 - 赵家振 | Website</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/rainbow.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">赵家振 | Website</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../algorithm/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/" class="dropdown-item">入门基本算法</a>
+</li>
+                                    
+<li>
+    <a href="../../algorithm/graph/" class="dropdown-item">图论</a>
+</li>
+                                    
+<li>
+    <a href="../../algorithm/math/" class="dropdown-item">数论</a>
+</li>
+                                    
+<li>
+    <a href="../../algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="dropdown-item">数据结构</a>
+</li>
+                                    
+<li>
+    <a href="../../algorithm/DP/" class="dropdown-item">动态规划</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../CN-Top2down/" class="nav-link">CN-Top-Down</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">南大PA指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">pa1</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">xv6指南</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../xv6/" class="dropdown-item">xv6</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tools</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tools/useGuide/" class="dropdown-item">makedocs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../CN-Top2down/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../xv6/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#pa1" class="nav-link">Pa1总结</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#pa11" class="nav-link">Pa1.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pa12" class="nav-link">Pa1.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pa13" class="nav-link">PA1.3</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="pa1">Pa1总结</h1>
+<h2 id="pa11">Pa1.1</h2>
+<h3 id="pa">在开始愉快的PA之旅之前</h3>
+<p>​   本次实验是基于<code>riscv32</code>来完成的，如果选择的其他ISA，可以参考思路</p>
+<h3 id="_1">开天辟地的篇章</h3>
+<p>​   计算机可以没有寄存器吗？（建议二周目思考）--等待二周目补充</p>
+<p>​   尝试理解计算机如何计算？画出1+2+...+100的状态机</p>
+<blockquote>
+<p>​ (0,x ,x )-&gt;(1,0 ,x )-&gt;(2,0 ,0 )-&gt;(3,0 ,1 )-&gt;(4,1 ,1 )-&gt;(5,1 ,2 )-&gt;(6,3 ,2 )-&gt;(7,3 ,3 )-&gt;(8,6 ,3 )-&gt;(9,6 ,4 )-&gt;(10,10 ,4 )...依次类推（两次一循环，r2+1,r1+=r2）</p>
+</blockquote>
+<h3 id="rtfsc">RTFSC</h3>
+<p>​   在<code>cmd_c()</code>函数中, 调用<code>cpu_exec()</code>的时候传入了参数<code>-1</code>, 你知道这是什么意思吗?</p>
+<p><code>cmd_c</code>函数在<code>monitior/sdb/sdb.c</code>中定义，我们可以追踪<code>cpu_exec()</code>函数，可以在<code>CPU</code>相关代码中找到如下函数定义</p>
+<pre><code class="language-c">/* Simulate how the CPU works. */
+void cpu_exec(uint64_t n) {
+    g_print_step = (n &lt; MAX_INST_TO_PRINT);
+    switch (nemu_state.state) {
+        case NEMU_END: case NEMU_ABORT:
+            printf(&quot;Program execution has ended. To restart the program, exit NEMU and run again.\n&quot;);
+            return;
+        default: nemu_state.state = NEMU_RUNNING;
+    }
+    uint64_t timer_start = get_time();
+    execute(n);
+ ...
+    }
+}
+</code></pre>
+<p>​   可以发现继续调用了函数<code>execute</code></p>
+<pre><code class="language-c">static void execute(uint64_t n) {
+    Decode s;
+    for (;n &gt; 0; n --) {
+        exec_once(&amp;s, cpu.pc);
+        g_nr_guest_inst ++;
+        trace_and_difftest(&amp;s, cpu.pc);
+        if (nemu_state.state != NEMU_RUNNING) break;
+        IFDEF(CONFIG_DEVICE, device_update());
+    }
+}
+</code></pre>
+<p>​   因此当传入<code>-1</code>的时候，<code>for</code>循环不会执行，因此直接在<code>cpu_exec</code>函数中执行后续代码，而不会进行新的指令。</p>
+<p><strong>为了测试大家是否已经理解框架代码, 我们给大家设置一个练习: 如果在运行NEMU之后直接键入<code>q</code>退出, 你会发现终端输出了一些错误信息. 请分析这个错误信息是什么原因造成的, 然后尝试在NEMU中修复它.</strong></p>
+<p>​   这里我们可以先去观察输入<code>q</code>之后会发生什么？</p>
+<pre><code class="language-c">static int cmd_q(char *args) {
+    return -1;
+}
+</code></pre>
+<p>​   它会直接返回<code>-1</code>，我们回到<code>main_loop</code>中</p>
+<pre><code class="language-c">int i;
+for (i = 0; i &lt; NR_CMD; i ++) {
+    if (strcmp(cmd, cmd_table[i].name) == 0) {
+    if (cmd_table[i].handler(args) &lt; 0) { return; }
+        break;
+    }
+}
+</code></pre>
+<p>​   从这段代码中，我们可以发现返回值小于0的时候会直接<code>return</code>我们继续追踪，<code>return</code>之后回到了<code>nemu-main.c</code>中</p>
+<pre><code class="language-c">/* Start engine. */
+  engine_start();
+  return is_exit_status_bad();
+}
+</code></pre>
+<p>​   其中<code>engine_start()</code>就是启动<code>main_loop</code>的函数，我们可以发现返回的是<code>is_exit_status_bad</code>我们可以在<code>utils</code>中找到他</p>
+<pre><code class="language-c">int is_exit_status_bad() {
+        printf(&quot;nemu_state = %d\n&quot;,nemu_state.state);
+  int good = (nemu_state.state == NEMU_END &amp;&amp; nemu_state.halt_ret == 0) ||
+    (nemu_state.state == NEMU_QUIT);
+  return !good;
+}
+</code></pre>
+<p>​   因此我们只需要在<code>cmd_q</code>函数中将<code>NEMU_STATE</code>设置为<code>NEMU_QUIT</code>即可,代码如下</p>
+<pre><code class="language-c">static int cmd_q(char *args) {
+    nemu_state.state = NEMU_QUIT;
+    return -1;
+}
+</code></pre>
+<h3 id="_2">基础设施</h3>
+<p>在这里以及接下一个小章节我们需要实现如下几个基本功能：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>格式</th>
+<th>使用举例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帮助(1)</td>
+<td><code>help</code></td>
+<td><code>help</code></td>
+<td>打印命令的帮助信息</td>
+</tr>
+<tr>
+<td>继续运行(1)</td>
+<td><code>c</code></td>
+<td><code>c</code></td>
+<td>继续运行被暂停的程序</td>
+</tr>
+<tr>
+<td>退出(1)</td>
+<td><code>q</code></td>
+<td><code>q</code></td>
+<td>退出NEMU</td>
+</tr>
+<tr>
+<td>单步执行</td>
+<td><code>si [N]</code></td>
+<td><code>si 10</code></td>
+<td>让程序单步执行<code>N</code>条指令后暂停执行, 当<code>N</code>没有给出时, 缺省为<code>1</code></td>
+</tr>
+<tr>
+<td>打印程序状态</td>
+<td><code>info SUBCMD</code></td>
+<td><code>info r</code> <code>info w</code></td>
+<td>打印寄存器状态 打印监视点信息</td>
+</tr>
+<tr>
+<td>扫描内存(2)</td>
+<td><code>x N EXPR</code></td>
+<td><code>x 10 $esp</code></td>
+<td>求出表达式<code>EXPR</code>的值, 将结果作为起始内存 地址, 以十六进制形式输出连续的<code>N</code>个4字节</td>
+</tr>
+<tr>
+<td>表达式求值</td>
+<td><code>p EXPR</code></td>
+<td><code>p $eax + 1</code></td>
+<td>求出表达式<code>EXPR</code>的值, <code>EXPR</code>支持的 运算请见<a href="https://nju-projectn.github.io/ics-pa-gitbook/ics2022/1.6.html">调试中的表达式求值</a>小节</td>
+</tr>
+<tr>
+<td>设置监视点</td>
+<td><code>w EXPR</code></td>
+<td><code>w *0x2000</code></td>
+<td>当表达式<code>EXPR</code>的值发生变化时, 暂停程序执行</td>
+</tr>
+<tr>
+<td>删除监视点</td>
+<td><code>d N</code></td>
+<td><code>d 2</code></td>
+<td>删除序号为<code>N</code>的监视点</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">单步执行</h4>
+<p>​   这里直接给出代码，直接调用<code>cpu_exec</code>函数即可</p>
+<pre><code class="language-c">static int cmd_si(char *args){
+    int step = 0;
+    if(args == NULL)
+        step = 1;
+    else
+        sscanf(args,&quot;%d&quot;,&amp;step);// 读入 Step
+    cpu_exec(step);
+    return 0;
+}
+</code></pre>
+<h4 id="_4">打印寄存器</h4>
+<p>​   我们经过<code>RTFSC</code>之后，可以发现在<code>reg.c</code>文件中定义了当前指令集的寄存器结构，同时在<code>isa-def</code>中可以找到<code>CPU_state</code>的定义</p>
+<pre><code class="language-c">typedef struct {
+  word_t gpr[32];       // general purpose register;
+  vaddr_t pc;
+} riscv32_CPU_state;
+</code></pre>
+<p>​   在这里<code>gpr</code>的值就代表了寄存器对应的值，因此我们可以得出打印寄存器的值的函数如下:</p>
+<pre><code class="language-c">void isa_reg_display() {
+    int length =  sizeof(regs) / sizeof(regs[0]);
+    for(int i = 0  ; i &lt; length ; i ++)
+        printf(&quot;reg$%s ---&gt; %d\n&quot;,regs[i], cpu.gpr[i]);
+}
+</code></pre>
+<p>​   同时需要在<code>sdb.c</code>中定义<code>info r</code></p>
+<pre><code class="language-c">static int cmd_info(char *args){
+    if(args == NULL)
+        printf(&quot;No args.\n&quot;);
+    else if(strcmp(args, &quot;r&quot;) == 0)
+        isa_reg_display();
+    else if(strcmp(args, &quot;w&quot;) == 0)
+        sdb_watchpoint_display();
+    return 0;
+}
+</code></pre>
+<h4 id="_5">扫描内存</h4>
+<p>​   为了实现扫描内存的功能，我们可以在<code>memory</code>相关的代码中找到<code>paddr_read</code>这个函数，接下来我们只需要处理输入参数即可</p>
+<pre><code class="language-c">static int cmd_x(char *args){
+    char* n = strtok(args,&quot; &quot;);
+    char* baseaddr = strtok(NULL,&quot; &quot;);
+    int len = 0;
+    paddr_t addr = 0;
+    sscanf(n, &quot;%d&quot;, &amp;len);
+    sscanf(baseaddr,&quot;%x&quot;, &amp;addr);
+    for(int i = 0 ; i &lt; len ; i ++)
+    {
+        printf(&quot;%x\n&quot;,paddr_read(addr,4));//addr len
+        addr = addr + 4;
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>至此pa1阶段1结束</strong></p>
+<hr />
+<h2 id="pa12">Pa1.2</h2>
+<h3 id="_6">表达式求值</h3>
+<h4 id="_7">词法分析</h4>
+<p>​   词法分析需要实现的功能就是将一个字符串表达式分解成我们定义的token类型，及<code>type,val_str</code>的类型</p>
+<pre><code class="language-c">typedef struct token {
+    int type;
+    char str[32];
+} Token;
+</code></pre>
+<p>​   通过阅读手册，我们发现词法分析的过程是根据一个个自定义的正则表达式规则来的，因此我们先定义规则<code>rules</code>，这里直接给出参考代码</p>
+<pre><code class="language-c">enum {
+    TK_NOTYPE = 256,
+    NUM = 1,
+    RESGISTER = 2,
+    HEX = 3,
+    EQ = 4,
+    NOTEQ = 5,
+    OR = 6,
+    AND = 7,
+    ZUO = 8,
+    YOU = 9,
+    LEQ = 10,
+    YINYONG = 11,
+    POINT, NEG
+};
+static struct rule {
+    const char *regex;
+    int token_type;
+} rules[] = {
+
+    /* TODO: Add more rules.
+     * Pay attention to the precedence level of different rules.
+     */
+
+    {&quot; +&quot;, TK_NOTYPE},    // spaces
+    {&quot;\\+&quot;, '+'},         // plus
+    {&quot;\\-&quot;, '-'},         // sub
+    {&quot;\\*&quot;, '*'},         // mul
+    {&quot;\\/&quot;, '/'},         // div
+
+    {&quot;\\(&quot;, ZUO},
+    {&quot;\\)&quot;, YOU},
+    /*
+     * Inset the '(' and ')' on the [0-9] bottom case Bug.
+     */
+
+    {&quot;\\&lt;\\=&quot;, LEQ},            // TODO
+    {&quot;\\=\\=&quot;, EQ},        // equal
+    {&quot;\\!\\=&quot;, NOTEQ},
+
+    {&quot;\\|\\|&quot;, OR},       // Opetor
+    {&quot;\\&amp;\\&amp;&quot;, AND},
+    {&quot;\\!&quot;, '!'},
+
+    //{&quot;\\$[a-z]*&quot;, RESGISTER},
+    {&quot;\\$[a-zA-Z]*[0-9]*&quot;, RESGISTER},
+    {&quot;0[xX][0-9a-fA-F]+&quot;, HEX},
+    {&quot;[0-9]*&quot;, NUM},
+
+};
+
+</code></pre>
+<p>​   这里代码没什么复杂的地方，主要就是根据不同的存储类型对应上不同的正则表达式以及<code>type</code>类型，但是一定要注意<strong>先后顺不同</strong>以及<strong>转义符号的使用</strong></p>
+<p>​   在定义好规则之后，我们直接在原本的<code>make_tokens</code>代码上进行修改即可，参考代码如下</p>
+<pre><code class="language-c">static bool make_token(char *e) {
+    int position = 0;
+    int i;
+    regmatch_t pmatch;
+
+    nr_token = 0;
+
+    while (e[position] != '\0') {
+        /* Try all rules one by one. */
+        for (i = 0; i &lt; NR_REGEX; i ++) {
+            if (regexec(&amp;re[i], e + position, 1, &amp;pmatch, 0) == 0 &amp;&amp; pmatch.rm_so == 0) {
+                //      char *substr_start = e + position;
+                int substr_len = pmatch.rm_eo;
+                /*
+                   Log(&quot;match rules[%d] = \&quot;%s\&quot; at position %d with len %d: %.*s&quot;,
+                   i, rules[i].regex, position, substr_len, substr_len, substr_start);
+                   */
+
+                position += substr_len;
+
+                /* TODO: Now a new token is recognized with rules[i]. Add codes
+                 * to record the token in the array `tokens'. For certain types
+                 * of tokens, some extra actions should be performed.
+                 */
+                Token tmp_token;
+                switch (rules[i].token_type) {
+                    case '+':
+                        tmp_token.type = '+';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case '-':
+                        tmp_token.type = '-';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case '*':
+                        tmp_token.type = '*';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case '/':
+                        tmp_token.type = '/';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case 256:
+                        break;
+                    case '!':
+                        tmp_token.type = '!';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case 9:
+                        tmp_token.type = ')';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+                    case 8:
+                        tmp_token.type = '(';
+                        tokens[nr_token ++] = tmp_token;
+                        break;
+
+                        // Special
+                    case 1: // num
+                        tokens[nr_token].type = 1;
+                        strncpy(tokens[nr_token].str, &amp;e[position - substr_len], substr_len);
+                        nr_token ++;
+                        break;
+                    case 2: // regex
+                        tokens[nr_token].type = 2;
+                        strncpy(tokens[nr_token].str, &amp;e[position - substr_len], substr_len);
+                        nr_token ++;
+                        break;
+                    case 3: // HEX
+                        tokens[nr_token].type = 3;
+                        strncpy(tokens[nr_token].str, &amp;e[position - substr_len], substr_len);
+                        nr_token ++;
+                        break;
+                    case 4:
+                        tokens[nr_token].type = 4;
+                        strcpy(tokens[nr_token].str, &quot;==&quot;);
+                        nr_token++;
+                        break;
+                    case 5:
+                        tokens[nr_token].type = 5;
+                        strcpy(tokens[nr_token].str, &quot;!=&quot;);
+                        nr_token++;case 6:
+                        tokens[nr_token].type = 6;
+                        strcpy(tokens[nr_token].str, &quot;||&quot;);
+                        nr_token++;
+                        break;
+                    case 7:
+                        tokens[nr_token].type = 7;
+                        strcpy(tokens[nr_token].str, &quot;&amp;&amp;&quot;);
+                        nr_token++;
+                        break;
+                    case 10:
+                        tokens[nr_token].type = 10;
+                        strcpy(tokens[nr_token].str, &quot;&lt;=&quot;);
+                        nr_token ++;
+                        break;
+                    default:
+                        printf(&quot;i = %d and No rules is com.\n&quot;, i);
+                        break;
+                }
+                len = nr_token;
+                break;
+            }
+        }
+
+        if (i == NR_REGEX) {
+            printf(&quot;no match at position %d\n%s\n%*.s^\n&quot;, position, e, position, &quot;&quot;);
+            return false;
+        }
+    }
+
+    return true;
+}
+
+</code></pre>
+<p>​   这里简单解释一下代码，代码的执行逻辑是把原始字符串进行分割，逐个匹配我们自定义的<code>rules</code>规则，匹配成功之后，就进行处理。在我们的<code>tokens</code>数组之中加入我们匹配成功后的<code>token</code>，主要包括它的类型以及记录的值。但是这里的匹配一定要对应之前定义的规则。</p>
+<h4 id="_8">递归求值</h4>
+<p>​   通过上述的表达式分解之后，我们就可以开始进行表达式求值了，先给出<code>check_parentheses()</code>参考代码，就是一个很简单的双指针算法</p>
+<pre><code class="language-c">bool check_parentheses(int p, int q)
+{
+    if(tokens[p].type != '('  || tokens[q].type != ')')
+        return false;
+    int l = p , r = q;
+    while(l &lt; r)
+    {
+        if(tokens[l].type == '('){
+            if(tokens[r].type == ')')
+            {
+                l ++ , r --;
+                continue;
+            }
+
+            else
+                r --;
+        }
+        else if(tokens[l].type == ')')
+            return false;
+        else l ++;
+    }
+    return true;
+}
+</code></pre>
+<p>​   从<code>expr.c</code>的函数中我们发现，所有的表达式行为都是从<code>expr</code>函数开始的，同时我们发现执行计算的函数是<code>eval</code>,这里直接给出参考代码</p>
+<pre><code class="language-c">uint32_t eval(int p, int q) {
+    if (p &gt; q) {
+        /* Bad expression */
+        assert(0);
+        return -1;
+    }
+    else if (p == q) {
+        /* Single token.
+         * For now this token should be a number.
+         * Return the value of the number.
+         */
+        return atoi(tokens[p].str);
+    }
+    else if (check_parentheses(p, q) == true) {
+        /* The expression is surrounded by a matched pair of parentheses.
+         * If that is the case, just throw away the parentheses.
+         */
+        // printf(&quot;check p = %d, q = %d\n&quot;,p + 1 , q - 1);
+        return eval(p + 1, q - 1);
+    }
+    /* else if(check_parentheses(p, q) == false){
+       printf(&quot;Unique\n&quot;);
+       return -1;
+       }
+       */
+    else {
+        int op = -1; // op = the position of 主运算符 in the token expression;
+        bool flag = false;
+        for(int i = p ; i &lt;= q ; i ++)
+        {
+            if(tokens[i].type == '(')
+            {
+                while(tokens[i].type != ')')
+                    i ++;
+            }
+            if(!flag &amp;&amp; tokens[i].type == 6){
+                flag = true;
+                op = max(op,i);
+            }
+
+            if(!flag &amp;&amp; tokens[i].type == 7 ){
+                flag = true;
+                op = max(op,i);
+            }
+
+            if(!flag &amp;&amp; tokens[i].type == 5){
+                flag = true;
+                op = max(op,i);
+            }
+
+            if(!flag &amp;&amp; tokens[i].type == 4){
+                flag = true;
+                op = max(op,i);
+            }
+            if(!flag &amp;&amp; tokens[i].type == 10){
+                flag = true;
+                op = max(op, i);
+            }
+            if(!flag &amp;&amp; (tokens[i].type == '+' || tokens[i].type == '-')){
+                flag = true;
+                op = max(op, i);
+            }
+            if(!flag &amp;&amp; (tokens[i].type == '*' || tokens[i].type == '/') ){
+                op = max(op, i);
+            }
+        }
+        //      printf(&quot;op position is %d\n&quot;, op);
+        // if register return $register
+        int  op_type = tokens[op].type;
+
+        // 递归处理剩余的部分
+        uint32_t  val1 = eval(p, op - 1);
+        uint32_t  val2 = eval(op + 1, q);
+        //      printf(&quot;val1 = %d, val2 = %d \n&quot;, val1, val2);
+
+        switch (op_type) {
+            case '+':
+                return val1 + val2;
+            case '-':
+                return val1 - val2;
+            case '*':
+                return val1 * val2;
+            case '/':
+                if(val2 == 0){//printf(&quot;division can't zero;\n&quot;);
+                    division_zero = true;
+                    return 0;
+                }
+                return val1 / val2;
+            case 4:
+                return val1 == val2;
+            case 5:
+                return val1 != val2;
+            case 6:
+                return val1 || val2;
+            case 7:
+                return val1 &amp;&amp; val2;
+            default:
+                printf(&quot;No Op type.&quot;);
+                assert(0);
+        }
+    }
+}
+</code></pre>
+<p>​   下面我们来分析这段代码，在条件判断时我们可以发现如果<code>p&gt;q</code>代表代码出现了错误，直接报错即可；当<code>p==q</code>的时候代表我们需要取出其中的值，因此我们可以使用<code>atoi</code>函数直接将字符数组转为<code>int</code>即可；当<code>p,q</code>通过括号校验的时候，我们直接递归处理括号里面的部分即可；最后就是进入了计算过程，在这里我们需要根<strong>据运算符的优先级得出主运算符的位置</strong>，这里的实现思路是通过记录一个标记<code>flag</code>的值，然后再遍历的时候，根据优先级来进行<code>if</code>判断，优先级低的先记录同时将<code>flag</code>的值进行改变，这样最终就能得出主运算符的位置同时也保证了<strong>低优先级以及最后出现的运算符为主运算符</strong>；之后就进行计算处理即可。</p>
+<p>​   但是在这里我们为了处理一些特殊值（负数，十六进制数等），我们需要再<code>make_tokens</code>之后进行预处理，主要代码如下：</p>
+<pre><code class="language-c">    /*
+     *  Get length
+     */ 
+    int tokens_len = 0;
+    for(int i = 0 ; i &lt; 30 ; i ++)
+    {
+    if(tokens[i].type == 0)
+        break;
+    tokens_len ++;
+    }
+    /*
+     * Init the tokens regex
+     * TODO
+     *
+     */
+    for(int i = 0 ; i &lt; tokens_len ; i ++)
+    {
+    if(tokens[i].type == 2)
+    {
+        bool flag = true;
+        int tmp = isa_reg_str2val(tokens[i].str, &amp;flag);
+        if(flag){
+        int2char(tmp, tokens[i].str); // transfrom the str --&gt; $egx
+        }else{
+        printf(&quot;Transfrom error. \n&quot;);
+        assert(0);
+        }
+    }
+    }
+    /*
+     * Init the tokens HEX
+     */
+    for(int i = 0 ; i &lt; tokens_len ; i ++)
+    {
+        if(tokens[i].type == 3)// Hex num
+        {
+            int value = strtol(tokens[i].str, NULL, 16);
+            int2char(value, tokens[i].str);
+        }
+    }
+    /*
+     * Init the tokens str. 1 ==&gt; -1.
+     *
+     */
+    for(int i = 0 ; i &lt; tokens_len ; i ++)
+    {
+    if((tokens[i].type == '-' &amp;&amp; i &gt; 0 &amp;&amp; tokens[i-1].type != NUM &amp;&amp; tokens[i+1].type == NUM)
+        ||
+        (tokens[i].type == '-' &amp;&amp; i == 0)
+      )
+    {
+        //printf(&quot;%s\n&quot;, tokens[i+1].str);
+        tokens[i].type = TK_NOTYPE;
+        //tokens[i].str = tmp;
+        for(int j = 31 ; j &gt;= 0 ; j --){
+        tokens[i+1].str[j] = tokens[i+1].str[j-1];
+        }
+        tokens[i+1].str[0] = '-';
+        // printf(&quot;%s\n&quot;, tokens[i+1].str);
+        for(int j = 0 ; j &lt; tokens_len ; j ++){
+        if(tokens[j].type == TK_NOTYPE)
+        {
+            for(int k = j +1 ; k &lt; tokens_len ; k ++){
+            tokens[k - 1] = tokens[k];
+            }
+            tokens_len -- ;
+        }
+        }
+    }
+    }
+
+    /*
+     * Init the tokens !
+     * TODO 
+     */
+    for(int i = 0 ; i &lt; tokens_len ; i ++)
+    {
+    if(tokens[i].type == '!')
+    {
+        tokens[i].type = TK_NOTYPE;
+        int tmp = char2int(tokens[i+1].str);
+        if(tmp == 0){
+        memset(tokens[i+1].str, 0 ,sizeof(tokens[i+1].str));
+        tokens[i+1].str[0] = '1';
+        }
+        else{
+        memset(tokens[i+1].str, 0 , sizeof(tokens[i+1].str));
+        }
+        for(int j = 0 ; j &lt; tokens_len ; j ++){
+        if(tokens[j].type == TK_NOTYPE)
+        {
+            for(int k = j +1 ; k &lt; tokens_len ; k ++){
+            tokens[k - 1] = tokens[k];
+            }
+            tokens_len -- ;
+        }
+        }
+    }
+    }
+    /*
+     * TODO
+     * Jie yin yong
+     * */
+    for(int i = 0 ; i &lt; tokens_len ; i ++)
+    {
+    if( (tokens[i].type == '*' &amp;&amp; i &gt; 0 
+            &amp;&amp; tokens[i-1].type != NUM &amp;&amp; tokens[i-1].type != HEX &amp;&amp; tokens[i-1].type != RESGISTER
+            &amp;&amp; tokens[i+1].type == NUM 
+            )
+                ||
+        (tokens[i].type == '*' &amp;&amp; i &gt; 0
+                    &amp;&amp; tokens[i-1].type != NUM &amp;&amp; tokens[i-1].type != HEX &amp;&amp; tokens[i-1].type != RESGISTER
+                    &amp;&amp; tokens[i+1].type == HEX
+                    )
+        ||
+                (tokens[i].type == '*' &amp;&amp; i == 0)
+          )
+        {
+            tokens[i].type = TK_NOTYPE;
+            int tmp = char2int(tokens[i+1].str);
+            uintptr_t a = (uintptr_t)tmp;
+            int value = *((int*)a);
+            int2char(value, tokens[i+1].str);       
+            // 
+            for(int j = 0 ; j &lt; tokens_len ; j ++){
+                if(tokens[j].type == TK_NOTYPE){
+                    for(int k = j +1 ; k &lt; tokens_len ; k ++){
+                    tokens[k - 1] = tokens[k];
+                }
+                    tokens_len -- ;
+                }
+            }
+        }
+    }
+</code></pre>
+<p>​   上面的代码主要实现了预处理过程，希望读者们仔细细心理解并尝试自己实现，在上面我们使用了<code>char2int</code>以及<code>int2char</code>函数，下面也给出了代码：</p>
+<pre><code class="language-c">int char2int(char s[]){
+    int s_size = strlen(s);
+    int res = 0 ;
+    for(int i = 0 ; i &lt; s_size ; i ++)
+    {
+    res += s[i] - '0';
+    res *= 10;
+    }
+    res /= 10;
+    return res;
+}
+void int2char(int x, char str[]){
+    int len = strlen(str);
+    memset(str, 0, len);
+    int tmp_index = 0;
+    int tmp_x = x;
+    int x_size = 0, flag = 1;
+    while(tmp_x){
+    tmp_x /= 10;
+    x_size ++;
+    flag *= 10;
+    }
+    flag /= 10;
+    while(x)
+    {
+    int a = x / flag; 
+    x %= flag;
+    flag /= 10;
+    str[tmp_index ++] = a + '0';
+    }
+}
+</code></pre>
+<p>​   在完成词法分析以及递归求值功能之后，我们就可以在<code>main_loop</code>中调用了</p>
+<pre><code class="language-c">static int cmd_p(char* args){
+    if(args == NULL){
+        printf(&quot;No args\n&quot;);
+        return 0;
+    }
+    //  printf(&quot;args = %s\n&quot;, args);
+    bool flag = false;
+    expr(args, &amp;flag);
+    return 0;
+}
+
+</code></pre>
+<p>​   至此，就完成了表达式求值的功能</p>
+<h3 id="_9">如何测试你的代码</h3>
+<p>​   这里直接给出<code>gen-expr.c</code>的参考代码，主要就是代码逻辑，没什么复杂度</p>
+<pre><code class="language-c">int choose(int n){
+    int flag = rand() % 3 ; // 0 1 2
+    printf(&quot;index = %d, flag = %d. \n&quot;,index_buf, flag);
+    return flag;
+}
+void gen_num(){
+    int num = rand()% 100;
+    int num_size = 0, num_tmp = num;
+    while(num_tmp){
+    num_tmp /= 10;
+    num_size ++;
+    }
+    int x = 1;
+    while(num_size)
+    {
+    x *= 10;
+    num_size -- ;
+    }
+    x /= 10;
+    while(num)
+    {
+    char c = num / x + '0';
+    num %= x;
+    x /= 10;
+    buf[index_buf ++] = c;
+    }
+}
+void gen(char c){
+    buf[index_buf ++] = c;
+}
+void gen_rand_op(){
+    char op[4] = {'+', '-', '*', '/'};
+    int op_position = rand() % 4;
+    buf[index_buf ++] = op[op_position];
+}
+
+static void gen_rand_expr() {
+    //    buf[0] = '\0';    
+   if(index_buf &gt; 65530)
+        printf(&quot;overSize\n&quot;);
+    switch (choose(3)) {
+    case 0:
+        gen_num();
+        break;
+    case 1:
+        gen('(');
+        gen_rand_expr();
+        gen(')');
+        break;
+    default:
+        gen_rand_expr();
+        gen_rand_op();
+        gen_rand_expr();
+        break;
+    }
+}
+</code></pre>
+<p><strong>至此pa1.2完成</strong></p>
+<hr />
+<h2 id="pa13">PA1.3</h2>
+<h3 id="_10">扩展表达式求值的功能</h3>
+<p>​   这个在之前已经实现了，可以会看参考</p>
+<h3 id="_11">实现监视点</h3>
+<p>​   我们需要先对监视点的结构体进行补充</p>
+<pre><code class="language-c">typedef struct watchpoint {
+    int NO;
+    struct watchpoint *next;
+    //  TODO: Add more members if necessary 
+    bool flag; // use / unuse
+    char expr[100];
+    int new_value;
+    int old_value;
+} WP;
+</code></pre>
+<p>​   这里主要添加了一个<code>flag</code>来记录是否使用，<code>new_value</code>和<code>old_value</code>来记录表达式前后的值</p>
+<p>​   之后就来实现<code>new_wp()</code>和<code>free_wp(WP *wp)</code>函数，分别代表获取一个空闲节点和释放节点，参考代码如下：</p>
+<pre><code class="language-c">WP* new_wp(){
+    for(WP* p = free_ ; p -&gt; next != NULL ; p = p -&gt; next){
+        if( p -&gt; flag == false){
+            p -&gt; flag = true;
+            if(head == NULL){
+                head = p;
+            }
+            return p;
+        }
+    }
+    printf(&quot;No unuse point.\n&quot;);
+    assert(0);
+    return NULL;
+}
+void free_wp(WP *wp){
+    if(head -&gt; NO == wp -&gt; NO){
+        head -&gt; flag = false;
+        head = NULL;
+        printf(&quot;Delete watchpoint  success.\n&quot;);
+        return ;
+    }
+    for(WP* p = head ; p -&gt; next != NULL ; p = p -&gt; next){
+        if(p -&gt; next -&gt; NO  == wp -&gt; NO)
+        {
+            p -&gt; next = p -&gt; next -&gt; next;
+            p -&gt; next -&gt; flag = false; // 没有被使用
+            printf(&quot;free succes.\n&quot;);
+            return ;
+        }
+    }
+}
+</code></pre>
+<p>​   到这里我们就实现了基本函数，接下来就是监视器相关的代码，主要的增删查监视点代码如下：</p>
+<pre><code class="language-c">void sdb_watchpoint_display(){
+    bool flag = true;
+    for(int i = 0 ; i &lt; NR_WP ; i ++){
+        if(wp_pool[i].flag){
+            printf(&quot;Watchpoint.No: %d, expr = \&quot;%s\&quot;, old_value = %d, new_value = %d\n&quot;,
+                    wp_pool[i].NO, wp_pool[i].expr,wp_pool[i].old_value, wp_pool[i].new_value);
+                flag = false;
+        }
+    }
+    if(flag) printf(&quot;No watchpoint now.\n&quot;);
+}
+void delete_watchpoint(int no){
+    for(int i = 0 ; i &lt; NR_WP ; i ++)
+        if(wp_pool[i].NO == no){
+            free_wp(&amp;wp_pool[i]);
+            return ;
+        }
+}
+void create_watchpoint(char* args){
+    WP* p =  new_wp();
+    strcpy(p -&gt; expr, args);
+    bool success = false;
+    int tmp = expr(p -&gt; expr,&amp;success);
+   if(success) p -&gt; old_value = tmp;
+   else printf(&quot;创建watchpoint的时候expr求值出现问题\n&quot;);
+    printf(&quot;Create watchpoint No.%d success.\n&quot;, p -&gt; NO);
+}
+</code></pre>
+<p>​   同时调用代码如下：</p>
+<pre><code class="language-c">static int cmd_info(char *args){
+    if(args == NULL)
+        printf(&quot;No args.\n&quot;);
+    else if(strcmp(args, &quot;r&quot;) == 0)
+        isa_reg_display();
+    else if(strcmp(args, &quot;w&quot;) == 0)
+        sdb_watchpoint_display();
+    return 0;
+}
+static int cmd_d (char *args){
+    if(args == NULL)
+        printf(&quot;No args.\n&quot;);
+    else{
+        delete_watchpoint(atoi(args));
+    }
+    return 0;
+}
+static int cmd_w(char* args){
+    create_watchpoint(args);
+    return 0;
+}
+</code></pre>
+<p>​   为了每次在<code>CPU</code>运行一次之后都进行一次检查，这里我们在<code>cpu</code>中的<code>trace_and_difftest</code>函数中进行修改，参考代码如下：</p>
+<pre><code class="language-c">static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
+#ifdef CONFIG_ITRACE_COND
+    if (ITRACE_COND) { log_write(&quot;%s\n&quot;, _this-&gt;logbuf); }
+#endif
+    if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this-&gt;logbuf)); }
+    IFDEF(CONFIG_DIFFTEST, difftest_step(_this-&gt;pc, dnpc));
+    // Scan all watchpoint.
+    for(int i = 0 ; i &lt; NR_WP; i ++){
+        if(wp_pool[i].flag)
+        {
+            bool success = false;
+            int tmp = expr(wp_pool[i].expr,&amp;success);
+            if(success){
+                if(tmp != wp_pool[i].old_value)
+                {
+                    nemu_state.state = NEMU_STOP;
+                    printf(&quot;NO EQ\n&quot;);
+                    return ;
+                }
+            }
+            else{
+                printf(&quot;expr error.\n&quot;);
+                assert(0);
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="_12">如何阅读手册</h3>
+<p>​   状态机在文章就已经给出了</p>
+<p>RTFM 理解了科学查阅手册的方法之后, 请你尝试在你选择的ISA手册中查阅以下问题所在的位置, 把需要阅读的范围写到你的实验报告里面:</p>
+<ul>
+<li>riscv32</li>
+<li>riscv32有哪几种指令格式?<ul>
+<li>6种，R/I/S/U/B/J</li>
+</ul>
+</li>
+<li>LUI指令的行为是什么?<ul>
+<li>用于将一个立即数加载到目标寄存器的高位</li>
+</ul>
+</li>
+<li>mstatus寄存器的结构是怎么样的?<ul>
+<li>存储寄存器状态，详情见<code>VolumeⅡ</code></li>
+</ul>
+</li>
+</ul>
+<p>​   <code>shell</code>统计代码行数，在<code>scripts/native.mk</code>文件的最后添加如下代码：</p>
+<pre><code class="language-makefile">count:
+
+        @echo &quot;Counting functions in .c and .h files...&quot;
+        @find . \( -name &quot;*.c&quot; -o -name &quot;*.h&quot; \) -exec cat {} + | grep -c '.*'
+
+countNoun:
+
+        @echo &quot;Counting functions in .c and .h files...No Have Space&quot;
+        @find . \( -name &quot;*.c&quot; -o -name &quot;*.h&quot; \) -exec cat {} + | grep -cE '^.+$$'
+
+</code></pre>
+<p>​   注意缩进，不要使用空格，统一用<code>tab</code>，保存退出后可以使用<code>make count</code>和<code>make countNoun</code>来统计含与不含空行的代码数量</p>
+<p>​   <strong>请解释gcc中的<code>-Wall</code>和<code>-Werror</code>有什么作用? 为什么要使用<code>-Wall</code>和<code>-Werror</code>?</strong></p>
+<p>​   这里的<code>-Wall</code>和<code>-Werror</code>是为了启用所有的警告信息，以及将警告信息转为错误信息，作用是为了方便调试，减少<code>Bug</code>的出现</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
